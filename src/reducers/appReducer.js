@@ -84,7 +84,7 @@ console.log(initialState.faces);
 
 const appReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'ADD_NEW_FACES':
+        case 'ADD_NEW_FACES': 
             console.log('ADD');
             console.log(state);
             nextCounter++;
