@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
+/* ul {
+    list-style: none;
+    padding: 0;
+    margin: 0
+}
+li {
+    
+    list-style: none;
+    padding: 0;
+    margin: 0;
+} */
+
+html, body {
+	overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.content {
+	display: flex;
+	flex-direction: row;
+}
+.face-wrapper, .dashboard {
+	/* width: 50%; */
+}
+.face-wrapper {
+	position: relative;
+	/* height: 600px; */
+	/* overflow: hidden; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.face-wrapper .overlay {
+	position: absolute;
+	z-index: 1;
+	background: transparent;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.dashboard {
+
 }
 
-.App-link {
-  color: #61dafb;
-}
+ul.face-wrapper--list {
+	position: relative;
+	/* background: pink; */
+	/* width: 50%; */
+	/* height: 400px; */
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	list-style: none;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	-webkit-perspective: 500px;
+	-moz-perspective: 500px;
+	-ms-perspective: 500px;
+	-o-perspective: 500px;
+	perspective: 500px;
+}
+ul.face-wrapper--list li {
+	position: relative;
+	/* padding: 16px; */
+	margin-bottom: -20px;
+	background: #eee;
+	color: #252525;
+	font-size: 18px;
+	z-index: 2;
+
+	-webkit-transform: translateZ(0px);
+		-moz-transform: translateZ(0px);
+		-ms-transform: translateZ(0px);
+			-o-transform: translateZ(0px);
+			transform: translateZ(0px);
+}
+ul.face-wrapper--list li .slice-overlay {
+	cursor: pointer;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: white;
+	opacity: 0;
+}
+ul.face-wrapper--list li:hover .slice-overlay {
+	opacity: 0.2;
+}
+ul.face-wrapper--list li:nth-child(3n+3) {  
+	margin-bottom: 0;
+}
+ul.face-wrapper--list li img {
+	width: 100%;
+}
+ul li:nth-child(odd) {
+	/* background: pink; */
 }

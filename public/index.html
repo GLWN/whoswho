@@ -28,7 +28,9 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+    </div>
+    <!-- <ul class="fly face-wrapper--list"><li><img src="img/face_2-0.jpg"></li><li><img src="img/face_4-1.jpg"></li><li><img src="img/face_1-2.jpg"></li><li><img src="img/face_0-0.jpg"></li><li><img src="img/face_3-1.jpg"></li><li><img src="img/face_5-2.jpg"></li><li><img src="img/face_5-0.jpg"></li><li><img src="img/face_3-1.jpg"></li><li><img src="img/face_1-2.jpg"></li><li><img src="img/face_1-0.jpg"></li><li><img src="img/face_5-1.jpg"></li><li><img src="img/face_4-2.jpg"></li><li><img src="img/face_1-0.jpg"></li><li><img src="img/face_3-1.jpg"></li><li><img src="img/face_4-2.jpg"></li><li><img src="img/face_0-0.jpg"></li><li><img src="img/face_1-1.jpg"></li><li><img src="img/face_4-2.jpg"></li></ul> -->
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -39,5 +41,12 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="js/stroll.min.js"></script>
+    <script>
+      setTimeout(() => {
+        
+        stroll.bind('.face-wrapper--list');
+      }, 1000);
+    </script>
   </body>
 </html>
