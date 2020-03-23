@@ -1,15 +1,15 @@
 import facesJson from '../faces.json';
 
-const sliceCount = 3;
+let sliceCount = 3;
 const maxFaceDisplay = 2;
 const availableFaces = [];
-const initialState = {};
 let nextCounter = 0;
 
 for(let i = 0; i < facesJson.length; i++) {
     availableFaces.push(i);
+    console.log(i);
 }
-initialState.availableFaces = availableFaces;
+console.log(availableFaces);
 
 const shuffle = (array) => { // Fisher-Yates Modern Shuffle
     let i = array.length, rdm, temp;
@@ -22,96 +22,84 @@ const shuffle = (array) => { // Fisher-Yates Modern Shuffle
     }
     return array;
 }
-
-// v1.0 // show in order
-// initialState.faces = facesJson.flatMap((face) => {
-//     const faceSliced = [];
-
-//     for(let i = 0; i < sliceCount; i++) {
-//         faceSliced.push({
-//             ...face,
-//             id: face.id + "-" + i,
-//             sliceIndex: i,
-//             success: false,
-//             try: 0
-//         });
-//     }
-//     return faceSliced;
-// });
-
-const randomizeFaces = (faceList) => {
-    const data = faceList.flatMap((face) => {
+// TODO case 2 faces restantes !!!
+const buildNewFace = (avFaces) => {
+    const faceList = facesJson.flatMap((face) => {
         const faceSliced = [];
-        const shuffledFaces = shuffle(availableFaces);
-    
+        let shuffledFaces = [];
+        if(avFaces.length < 3) {
+            shuffledFaces = avFaces.sort(() => Math.random() - 0.5);
+            sliceCount--;
+        }else{
+            shuffledFaces = shuffle(avFaces);
+        }
+        console.log(shuffledFaces);
         for(let i = 0; i < sliceCount; i++) { // construct each face : HI - MID - LOW pattern
-            // const randomId = "face_" + Math.floor(Math.random() * Math.floor(facesJson.length));
-    
+            const {id, firstname, lastname, quote} = facesJson[shuffledFaces[i]];
             faceSliced.push({
                 ...face,
-                id: "face_" + shuffledFaces[i] + "-" + i,
-                sliceIndex: i,
-                success: false,
+                id: id + "-" + i,
+                firstname: firstname,
+                lastname: lastname,
+                quote: quote,
+                faceId: parseInt(id),
+                sliceId: i,
                 try: 0
             });
         }
         return faceSliced;
-    });
-
-    return data;
+    }).slice(0, 3);
+    return faceList;
 }
 
-initialState.faces = facesJson.flatMap((face) => {
-    const faceSliced = [];
-    const shuffledFaces = shuffle(availableFaces);
-
-    for(let i = 0; i < sliceCount; i++) { // construct each face : HI - MID - LOW pattern
-        // const randomId = "face_" + Math.floor(Math.random() * Math.floor(facesJson.length));
-
-        faceSliced.push({
-            ...face,
-            id: "face_" + shuffledFaces[i] + "-" + i,
-            sliceIndex: i,
-            success: false,
-            try: 0
-        });
-    }
-    return faceSliced;
-});
-// }).slice(0,18); // we display two faces only, i.e. 6 slices
-console.log("#####");
-console.log(initialState.faces);
+const initialState = {
+    'availableFaces': availableFaces,
+    'faces': facesJson,
+    'currentFaces': buildNewFace(availableFaces),
+    'success': false
+} 
 
 const appReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'ADD_NEW_FACES': 
-            console.log('ADD');
-            console.log(state);
-            nextCounter++;
-            if(nextCounter > 4) {
-                nextCounter = 0;
-                return {
-                    ...state,
-                    'faces' : [
-                        ...state.faces,
-                        randomizeFaces(facesJson)[0]
-                    ]
-                }
-            // } else if (state.faces.length > 19) {
-            //                     return {
-            //         ...state,
-            //         'faces' : [
-            //             ...initialState.faces
-            //         ]
-            //     }
-            } else {
-                return state;
-            }
-        case 'REMOVE_OLD_FACES':
+        case "NEXT_SLICE":
             return {
                 ...state,
-                'faces': state.faces.slice(3)
+                'currentFaces': state.currentFaces.map((face) => {
+                    if(face.faceId === action.faceId 
+                        && face.sliceId === action.sliceId) {
+                            return {
+                                ...face,
+                                faceId: action.faceId < state.availableFaces.length - 1
+                                        ?  action.faceId + 1
+                                        : 0
+                            }
+                    }
+                    return face;
+                })
             }
+        case "NEXT_FACE":
+            console.log(state);
+            return {
+                ...state,
+                'currentFaces': buildNewFace(state.availableFaces),
+                'success': false
+            }
+        case "SHOW_SUCCESS":
+            const successFace = state.currentFaces.flatMap((face) => {
+                return {
+                    ...face,
+                    faceId: action.id
+                }
+            }) 
+
+            return {
+                ...state,
+                'success': action.success,
+                'currentFaces': successFace,
+                'availableFaces': state.availableFaces.filter(faceId => faceId !== action.id)
+            }
+            return state;
+
         default:
             return state;
     }

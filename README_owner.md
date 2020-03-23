@@ -16,3 +16,10 @@ ENHANCEMENT :
 
 Via Node.js =>
 Calculer le nombre d'images contenues dans le dossier de slices et dynamiser le display en fonction du nombre de slices.
+
+TODO :
+
+enlever success face de la liste
+shake effect on error
+animate stripes
+optimize : unbind, destroy views...

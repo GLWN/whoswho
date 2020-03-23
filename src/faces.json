@@ -1,37 +1,37 @@
 [
     {
-        "id": "face_0",
+        "id": "0",
         "firstname": "Jay",
         "lastname": "Z",
         "quote": "Hey Yo !"
     },
     {
-        "id": "face_1",
+        "id": "1",
         "firstname": "Helen",
         "lastname": "Mirren",
         "quote": "Good morning !"
     },
     {
-        "id": "face_2",
+        "id": "2",
         "firstname": "Clint",
         "lastname": "Eastwood",
         "quote": "Die bastard !"
     },
     {
-        "id": "face_3",
+        "id": "3",
         "firstname": "Christopher",
         "lastname": "Walken",
         "quote": "Where's my head at?"
     },
     {
-        "id": "face_4",
+        "id": "4",
         "firstname": "Bill",
         "lastname": "Murray",
         "quote": "Who you gonne call?"
     },
     {
-        "id": "face_5",
-        "firstname": "Steve",
+        "id": "5",
+        "firstname": "Zack",
         "lastname": "Galifaniakis",
         "quote": "What's up wierdo ?!"
     }
