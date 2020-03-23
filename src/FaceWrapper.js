@@ -9,6 +9,7 @@ class FaceWrapper extends Component {
         super();
         // this.myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         this.updateDimensions = this.updateDimensions.bind(this);
+        this.faceRef = React.createRef();
     }
 
     // shuffle = (array) => { // Fisher-Yates Modern Shuffle
@@ -41,9 +42,14 @@ class FaceWrapper extends Component {
     componentDidMount() {
         window.addEventListener("resize", this.updateDimensions);
     }
+    
+    componentDidUpdate() {
+        console.log(this.faceRef.current.clientHeight);
+    }
 
     updateDimensions() {
-        const height = window.innerHeight/3;
+        const height = window.innerHeight;
+        
         // ratio matter
         console.log(height);
         return parseInt(height);
@@ -55,20 +61,20 @@ class FaceWrapper extends Component {
 
     render() {
         return(
-            <div className="face-wrapper">
+            <div className="face-wrapper" ref={this.faceRef}>
                 {
                     this.props.success &&
                     <div className="success-overlay fade-in"></div>
                 }
-                <ul className="wave face-wrapper--list">
+                <ul className="wave face-wrapper--list" style={{}}>
                     {this.props.currentFaces.map((face) => (
                         <Slice
-                            key={`face_${face.faceId}-${face.sliceId}`} 
+                            key={`face_${face.faceId}-${face.sliceId}`}
                             firstname={face.firstname}
                             lastname={face.lastname}
                             faceId={face.faceId}
-                            sliceId={face.sliceId} 
-                            height={this.updateDimensions}/>
+                            sliceId={face.sliceId}
+                            height={this.updateDimensions/3} />
                     ))}
                 </ul>
             </div>

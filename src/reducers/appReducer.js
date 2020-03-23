@@ -7,7 +7,6 @@ let nextCounter = 0;
 
 for(let i = 0; i < facesJson.length; i++) {
     availableFaces.push(i);
-    console.log(i);
 }
 console.log(availableFaces);
 
@@ -33,7 +32,7 @@ const buildNewFace = (avFaces) => {
         }else{
             shuffledFaces = shuffle(avFaces);
         }
-        console.log(shuffledFaces);
+        // console.log(shuffledFaces);
         for(let i = 0; i < sliceCount; i++) { // construct each face : HI - MID - LOW pattern
             const {id, firstname, lastname, quote} = facesJson[shuffledFaces[i]];
             faceSliced.push({

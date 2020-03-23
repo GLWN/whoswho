@@ -23,3 +23,6 @@ enlever success face de la liste
 shake effect on error
 animate stripes
 optimize : unbind, destroy views...
+
+!!! FIX ul li height to actual li's height 
+!!! FIX ul width

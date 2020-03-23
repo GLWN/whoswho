@@ -43,8 +43,8 @@ class App extends Component {
   }
   render() {
     return(
-      <div className="valign-wrapper">
-      <div className="valign">
+      // <div className="valign-wrapper">
+      // <div className="valign">
       <div className="app">
         <Header />
         <div className="content">
@@ -52,8 +52,8 @@ class App extends Component {
           <Dashboard />
         </div>
       </div>
-      </div>
-      </div>
+      // </div>
+      // </div>
     )
   }
 }

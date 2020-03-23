@@ -25,20 +25,20 @@ class Dashboard extends Component {
     render() {
         // console.log(store.getState());
         return(
-            <div className="dashboard">
+            <div className="dashboard not-selectable">
                 {/* <button onClick={this.nextFace}>
                     <span>Next</span>
                 </button> */}
                 <h1>WHO's<br />WHO?</h1>
                 <div onClick={this.nextFace} className="container-1">
                     <div className="btn btn-one">
-                        <span className="not-selectable">>>></span>
+                        <span className="">>>></span>
                     </div>
                 </div>
                 {/* <button>
                     <span>Reset</span>
                 </button> */}
-                <p>Score : <span></span></p>
+                <p className="">Score : <span></span></p>
             </div>
         )
     }

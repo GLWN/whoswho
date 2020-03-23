@@ -10,12 +10,21 @@ class Slice extends Component {
             isAnswered: false
         }
         this.answerInput = React.createRef();
+        this.myImg = React.createRef();
 
         //bindings
         this.handleAnswer = this.handleAnswer.bind(this);
         this.displayQuestion = this.displayQuestion.bind(this);
         this.closeQuestionLayer = this.closeQuestionLayer.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        
+    }
+
+    componentDidMount() {
+        // console.log(this.myImg.current.offs)
+    }
+    
+    componentDidUpdate() {
         
     }
 
@@ -103,8 +112,13 @@ class Slice extends Component {
                         </div>
                     }
                     {/* <div className="slider slide-in"> */}
-                    <img className="bg" src="_img/bg.jpg" />
-                    <img className="img-slice" src={`./_img/face_${this.props.faceId}-${this.props.sliceId}.jpg`} />
+                    <img className="bg" src={`_img/bg-${this.props.sliceId}.jpg`} />
+                    <img 
+                        className="img-slice" 
+                        onLoad={() => console.log(this.myImg.current.offsetHeight)}
+                        ref={this.myImg} 
+                        src={`_img/face_${this.props.faceId}-${this.props.sliceId}.jpg`} 
+                    />
             </li>
         )
     }
