@@ -35,17 +35,27 @@ import im18 from './img/face_5-2.jpg'
 // }
 
 class App extends Component {
+  constructor() {
+    super();
+  }
   componentDidMount() {
     const imageList = [im1, im2, im3, im4, im5, im6, im7, im8, im9, im10, im11, im12, im13, im14, im15, im16, im17, im18];
     imageList.forEach((image) => {
         new Image().src = image
     });
+    let el = document.getElementsByClassName('content')[0];
+    setTimeout(() => {
+      
+      el.classList.add('anim-intro');
+    }, 100);
   }
   render() {
+    // this.animIntro = "content anim-intro";
+    
     return(
       // <div className="valign-wrapper">
       // <div className="valign">
-      <div className="app">
+      <div>
         <Header />
         <div className="content">
           <FaceWrapper />

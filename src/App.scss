@@ -1,14 +1,7 @@
-/* ul {
-    list-style: none;
-    padding: 0;
-    margin: 0
-}
-li {
-    
-    list-style: none;
-    padding: 0;
-    margin: 0;
-} */
+// VARIABLES
+$color: #444;
+
+// GENERAL & HELPERS
 .not-selectable {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -16,19 +9,33 @@ li {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-  }
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+	outline: none;
+}
+
+.width-100 {
+	width: 100%;
+}
+.center {
+	text-align: center;
+}
 
 * {
 	box-sizing: border-box;
 }
 
 html, body {
-
 	background: #000;
 }
 
 
 h1 {
+	margin: 0 0 30px 0;
 	font-family: 'Merienda', cursive;
 	text-align: center;
 	font-size: 4em;
@@ -36,47 +43,39 @@ h1 {
 	font-weight: 600;
 }
 
+h2 {
+	color: #000;
+}
+
+p, span, h1, h2, h3, h4 {
+	color: #FFF;
+}
+
+// APP SPECIFIC STYLES
+
 .app {
-	// padding: 20px 10%;
 	width: 100%;
 	height: 100%;
-	// overflow: hidden;
 	position: absolute;
-	top: 45%;
-	transform: translateY(-50%);
+	// top: 45%;
+	// transform: translateY(-50%);
 }
 .content {
-	// overflow: hidden;
-	padding: 10% 20%;
-	// display: flex;
-	// flex-direction: row;
-	// height: 100%;
-	// min-height: 100%;
-	// max-height: 600px;
+	opacity: 0;
+	transition: opacity 2s ease-in-out;
+	padding: 2% 20%;
 	display: flex;
-	// justify-content: center;
-	// align-items: center;
-
 }
 .face-wrapper, .dashboard {
 	overflow: hidden;
-	// width: 50%;
-	// display: flex;
-	// flex-direction: row;
-	// display: inline-block;
-	// height: 80vh;
-	// flex: 1;
-	// flex: display;
-	// flex-direction: column;
-	// display: flex;
+	// border: 20px solid #000;
 }
-
 
 .face-wrapper {
 	width: 60%;
 	position: relative;
-	// border-left: 2px solid #FFF;
 	border-right: 2px solid #FFF;
+	
 	.success-overlay {
 		cursor: no-drop;
 		opacity: 0;
@@ -92,32 +91,51 @@ h1 {
 	background: #000;
 	width: 40%;
 	vertical-align: top;
-	// flex: 1;
-	// border: 10px solid #ECECEC;
-	// width: 50%;
 	padding: 20px;
-	// position: relative;
-	
-
-	// height: 100%;
-}
-
-.valign-wrapper {
-	// display: table;
-	// height: 100%;
-	// position: relative;
+	// border: 1px solid #FFF;
+	.counter-title {
+		font-family: 'Merienda', cursive;
+		padding: 5px;
+		margin-bottom: 0;
+		border: 1px solid #FFF;
+		color: #FFF;
+    	background: #000;
+		text-align: center;
+	}
+	.counter {
+		padding: 10px;
+		text-align: center;
+		margin: 0;
+		font-size: 3em;
+		color: #000;
+		background: #FFF;
+		font-weight: bold;
+		// display: inline-block;
+	}
+	.reset {
+		color: #999
+	}
 }
 
 .valign {
-	// display: table-cell;
-	// vertical-align: middle;
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
 }
 
-/* INPUTS */
-input:not([type=file]) {
+.valign-wrapper {
+	display: table;
+	height: 100%;
+}
+.valign-inner {
+	display: table-cell;
+	height: 100%;
+	vertical-align: middle;
+}
+
+// INPUTS
+input {
     border: 5px solid white; 
     -webkit-box-shadow: 
       inset 0 0 8px  rgba(0,0,0,0.1),
@@ -128,25 +146,19 @@ input:not([type=file]) {
     box-shadow: 
       inset 0 0 8px  rgba(0,0,0,0.1),
             0 0 16px rgba(0,0,0,0.1); 
-    padding: 15px;
+    padding: 5px;
     background: rgba(255,255,255,0.8);
-    margin: 0 0 10px 0;
+	margin: 0 10px 0 0;
 }
 
-p, span, h1, h2, h3, h4 {
-	color: #FFF;
+.input-text {
+	font-size: 14px;
 }
 
 ul.face-wrapper--list {
-	// position: relative;
-	/* background: pink; */
-	/* width: 50%; */
-	/* height: 400px; */
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	// overflow-x: hidden;
-	// overflow-y: hidden;
 	list-style: none;
 
 	-webkit-perspective: 500px;
@@ -156,17 +168,13 @@ ul.face-wrapper--list {
 	perspective: 500px;
 	
 	li {
-		/* position: relative; */
 		display: block;
-		/* padding: 16px; */
-		/* margin-bottom: -20px; */
 		background: #eee;
 		color: #252525;
 		font-size: 0;
 		z-index: 2;
 		border-bottom: 4px solid #000;
 		// min-height: (100% / 3);
-		// padding-top: 290px / 700px * 100%;
 	
 		-webkit-transform: translateZ(0px);
 			-moz-transform: translateZ(0px);
@@ -182,7 +190,6 @@ ul.face-wrapper--list {
 			height: 100%;
 		}
 		.slice-overlay {
-			// position: relative;
 			z-index: 8;
 			opacity: 0;
 			background: white;
@@ -196,14 +203,22 @@ ul.face-wrapper--list {
 		}
 		.question-overlay {
 			z-index: 9;
-			display: table;
 			background-color: rgba(255, 255, 255, 0.8);
 			.icon-close {
 				position: absolute;
+				z-index: 100;
 				top: 20px;
 				right: 20px;
 				width: 20px;
 				height: 20px;
+			}
+			.indice {
+				font-style: italic;
+				text-decoration: none;
+				color: #000;
+				display: inline-block;
+				font-size: 12px;
+				margin: 5px 0 0 0;
 			}
 		}
 		.fail-overlay {
@@ -254,12 +269,13 @@ ul.face-wrapper--list {
 	}
 }
 
+// SHAKE FORM ON ERROR
 .shake-me {
 	animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
 	transform: translate3d(0, 0, 0);
 	backface-visibility: hidden;
 	perspective: 1000px;
-  }
+}
   
 @keyframes shake {
 	10%, 90% {
@@ -278,6 +294,8 @@ ul.face-wrapper--list {
 		transform: translate3d(4px, 0, 0);
 	}
 }
+
+// FADE IN
 
 .fade-in {
 	animation: fadeIn ease 1s;
@@ -333,20 +351,15 @@ ul.face-wrapper--list {
 	}
   }
 
-
+// THIRD LI ITEM STYLE
 ul.face-wrapper--list li:nth-child(3n+3) {  
-	margin-bottom: 0;
-}
-ul li:nth-child(odd) {
-	/* background: pink; */
+	border-bottom: none;
 }
 
-// slide effect
+// SLIDE EFFECT
 .slider {
 	position: relative;
 	z-index: 1;
-    // width: 100px;
-    // height: 100px;
     transform: translateX(-100%);
     -webkit-transform: translateX(-100%);
 }
@@ -379,74 +392,7 @@ ul li:nth-child(odd) {
     100% { -webkit-transform: translateX(-100%); }
 }
 
-/* button shake */
-
-// button {
-// 	position: relative;
-// 	outline: none;
-// 	text-decoration: none;
-// 	border-radius: 50px;
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	cursor: pointer;
-// 	text-transform: uppercase;
-// 	height: 60px;
-// 	width: 210px;
-// 	opacity: 1;
-// 	background-color: #ffffff;
-// 	border: 1px solid rgba(22, 76, 167, 0.6);
-//   }
-//   button span {
-// 	color: #164ca7;
-// 	font-size: 12px;
-// 	font-weight: 500;
-// 	letter-spacing: 0.7px;
-//   }
-//   button:hover {
-// 	animation: rotate 0.7s ease-in-out both;
-//   }
-//   button:hover span {
-// 	animation: storm 0.7s ease-in-out both;
-// 	animation-delay: 0.06s;
-//   }
-  
-//   @keyframes rotate {
-// 	0% {
-// 	  transform: rotate(0deg) translate3d(0, 0, 0);
-// 	}
-// 	25% {
-// 	  transform: rotate(3deg) translate3d(0, 0, 0);
-// 	}
-// 	50% {
-// 	  transform: rotate(-3deg) translate3d(0, 0, 0);
-// 	}
-// 	75% {
-// 	  transform: rotate(1deg) translate3d(0, 0, 0);
-// 	}
-// 	100% {
-// 	  transform: rotate(0deg) translate3d(0, 0, 0);
-// 	}
-//   }
-//   @keyframes storm {
-// 	0% {
-// 	  transform: translate3d(0, 0, 0) translateZ(0);
-// 	}
-// 	25% {
-// 	  transform: translate3d(4px, 0, 0) translateZ(0);
-// 	}
-// 	50% {
-// 	  transform: translate3d(-3px, 0, 0) translateZ(0);
-// 	}
-// 	75% {
-// 	  transform: translate3d(2px, 0, 0) translateZ(0);
-// 	}
-// 	100% {
-// 	  transform: translate3d(0, 0, 0) translateZ(0);
-// 	}
-//   }
-
-  /*
+/*
  BUTTON STYLING https://codepen.io/CTNieves/pen/pbLGZW
 */
 .container-1 { background: #333; }
@@ -505,3 +451,114 @@ ul li:nth-child(odd) {
 	width: 100%;
 	height: 100%;
 }
+
+// ANIMATED SUBMIT
+
+@keyframes sheen {
+  0% {
+    transform: skewY(-45deg) translateX(0);
+  }
+  100% {
+    transform: skewY(-45deg) translateX(12.5em);
+  }
+}
+
+.button {
+	cursor: pointer;
+	padding: 0.75em 2em;
+	text-align: center;
+	text-decoration: none;
+	color: $color;
+	border: 2px solid $color;
+	font-size: 12px;
+	display: inline-block;
+	border-radius: 0.3em;
+	transition: all 0.2s ease-in-out;
+	position: relative;
+	overflow: hidden;
+	&:before {
+		content: "";
+		background-color: rgba(255,255,255,0.5);
+		height: 100%;
+		width: 3em;
+		display: block;
+		position: absolute;
+		top: 0;
+		left: -4.5em;
+		transform: skewX(-45deg) translateX(0);
+		transition: none;
+	}
+	&:hover {
+		background-color: $color;
+		color: #fff;
+		border-bottom: 2px solid darken($color, 10%);
+		&:before {
+			transform: skewX(-45deg) translateX(13.5em);
+			transition: all 0.5s ease-in-out;
+		}
+	}
+}
+
+// override for Next Btn
+
+.button-next {
+	width: 100%;
+	color: #000;
+	height: 140px;
+	// background: #AAA;
+	background: #000;
+	border: 1px solid #FFF;
+	span {
+		font-size: 100px;
+		margin-top: -15px;
+		display: inline-block;
+	}
+	&:before {
+		content: "";
+		width: 10em;
+		
+		left: -10.5em;
+		transform: skewX(-45deg) translateX(-10em);
+	}
+	&:hover {
+		color: #FFF;
+		border-bottom: 1px solid #FFF;
+		&:before {
+			transform: skewX(-45deg) translateX(40.5em);
+			transition: all 0.2s ease-in-out;
+		}
+	}
+}
+
+// ANIMATE APP INTRO
+.anim-intro {
+	opacity: 1;
+}
+
+// flicker animation on win
+@keyframes flickerAnimation {
+	0%   { opacity:1; }
+	50%  { opacity:0; }
+	100% { opacity:1; }
+  }
+  @-o-keyframes flickerAnimation{
+	0%   { opacity:1; }
+	50%  { opacity:0; }
+	100% { opacity:1; }
+  }
+  @-moz-keyframes flickerAnimation{
+	0%   { opacity:1; }
+	50%  { opacity:0; }
+	100% { opacity:1; }
+  }
+  @-webkit-keyframes flickerAnimation{
+	0%   { opacity:1; }
+	50%  { opacity:0; }
+	100% { opacity:1; }
+  }
+  .animate-flicker {
+	 -webkit-animation: flickerAnimation 1s infinite;
+	 -moz-animation: flickerAnimation 1s infinite;
+	 -o-animation: flickerAnimation 1s infinite;
+	  animation: flickerAnimation 1s infinite;
+  }

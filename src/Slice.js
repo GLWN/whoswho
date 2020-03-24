@@ -7,6 +7,7 @@ class Slice extends Component {
         super(props);
         this.state = {
             isOpened: false,
+            isHintShown: false,
             isAnswered: false
         }
         this.answerInput = React.createRef();
@@ -19,13 +20,9 @@ class Slice extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         
     }
-
-    componentDidMount() {
-        // console.log(this.myImg.current.offs)
-    }
     
-    componentDidUpdate() {
-        
+    componentDidMount() {
+
     }
 
     nextSlice = (e) => { // for A mode
@@ -59,10 +56,26 @@ class Slice extends Component {
                 success: true
             });
         } else {
+            // this.answerInput.current.value = "";
             this.setState({
                 'isAnswered': true
             });
+            this.props.dispatch({
+                type: 'COUNT_FAIL',
+                points: 10
+            });
         }
+    }
+
+    showHint = (e) => {
+        e.preventDefault();
+        this.setState({
+            isHintShown: !this.state.isHintShown
+        });
+        this.props.dispatch({
+            type: 'COUNT_FAIL',
+            points: 5
+        });
     }
 
     handleInputChange = (e) => {
@@ -94,20 +107,34 @@ class Slice extends Component {
                         this.state.isOpened &&
                         <div className="question-overlay">
                             <img className="icon-close" onClick={this.closeQuestionLayer} src={IconClose} />
-                            <div className="valign">
-                                <h2>My name is :</h2>
-                                <form onSubmit={this.handleAnswer}>
-                                    <input type="text"
+                            <div className="valign-wrapper center width-100">
+                                <div className="valign-inner">
+                                    <h2>My name is :</h2>
+                                    <form onSubmit={this.handleAnswer} className={this.state.isAnswered ? "shake-me" : ""}>
+                                        <input 
+                                            type="text"
+                                            className="input-text"
                                             required
                                             ref={this.answerInput} 
                                             onChange={this.handleInputChange}
                                             style={{
                                                 borderColor: this.state.isAnswered ? 'red' : 'white'
                                             }}
-                                            />
-                                    <input type="submit" value="Submit" />
-                                    {/* <button>VALIDATE</button> */}
-                                </form>
+                                        />
+                                        <button type="submit" value="Submit" className="button">Valider</button>
+                                        {/* <button>VALIDATE</button> */}
+                                        <br />
+                                        {
+                                            !this.state.isHintShown && 
+                                            <a className="indice" href="" onClick={this.showHint}>voir l'indice (-5 points)</a>                                
+                                        }
+                                        {
+                                            this.state.isHintShown && 
+                                            <p className="indice">{this.props.quote}</p>
+                                        }
+                                        
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     }

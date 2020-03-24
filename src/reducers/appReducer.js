@@ -55,7 +55,8 @@ const initialState = {
     'availableFaces': availableFaces,
     'faces': facesJson,
     'currentFaces': buildNewFace(availableFaces),
-    'success': false
+    'success': false,
+    'points': 0
 } 
 
 const appReducer = (state = initialState, action) => {
@@ -93,12 +94,21 @@ const appReducer = (state = initialState, action) => {
 
             return {
                 ...state,
+                'points': state.points + 20,
                 'success': action.success,
                 'currentFaces': successFace,
                 'availableFaces': state.availableFaces.filter(faceId => faceId !== action.id)
             }
-            return state;
-
+        case "COUNT_FAIL":
+            return {
+                ...state,
+                'points': state.points - action.points
+            }
+        case "RESET_APP":
+            return {
+                ...initialState,
+                'currentFaces': buildNewFace(availableFaces)
+            }
         default:
             return state;
     }

@@ -19,10 +19,8 @@ Calculer le nombre d'images contenues dans le dossier de slices et dynamiser le 
 
 TODO :
 
-enlever success face de la liste
-shake effect on error
-animate stripes
-optimize : unbind, destroy views...
-
-!!! FIX ul li height to actual li's height 
-!!! FIX ul width
+enlever success face de la liste OK sauf case 2 et 1
+shake effect on error OK
+animate stripes OK
+increment score : https://stackoverflow.com/questions/16994662/count-animation-from-number-a-to-b
+optimize : unbind, destroy views... TODO

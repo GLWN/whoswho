@@ -1,43 +1,14 @@
 import React, { Component } from 'react';
 import Slice from './Slice';
-// import './stroll.css';
 
 import { connect } from 'react-redux';
 
 class FaceWrapper extends Component {
     constructor() {
         super();
-        // this.myArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
         this.updateDimensions = this.updateDimensions.bind(this);
         this.faceRef = React.createRef();
     }
-
-    // shuffle = (array) => { // Fisher-Yates Modern Shuffle
-    //     let i = array.length, rdm, temp;
-        
-    //     while(--i > 0) {
-    //         rdm = Math.floor(Math.random() * (i + 1));
-    //         temp = array[rdm];
-    //         array[rdm] = array[i];
-    //         array[i] = temp;
-    //     }
-    //     return array;
-    // }
-    // componentDidMount() {
-        // const setLiDynamicHeight = () => {
-        //     const wrapper = document.getElementsByClassName('face-wrapper--list')[0];
-        //     const li = wrapper.getElementsByTagName("li");
-        //     const liHeight = [];
-            
-        //     for(let i = 0; i < 3; i++) { // get 3 slices height
-        //         liHeight.push(li[i].offsetHeight);
-        //     }
-        //     console.log(Math.min(liHeight));
-        //     return Math.min(liHeight);
-        // }
-        // console.log('SET DYNA HEIGHT : ', setLiDynamicHeight());
-        // setLiDynamicHeight();
-    // }
 
     componentDidMount() {
         window.addEventListener("resize", this.updateDimensions);
@@ -74,6 +45,8 @@ class FaceWrapper extends Component {
                             lastname={face.lastname}
                             faceId={face.faceId}
                             sliceId={face.sliceId}
+                            points={face.points}
+                            quote={face.quote}
                             height={this.updateDimensions/3} />
                     ))}
                 </ul>
@@ -87,7 +60,9 @@ const mapStateToProps = (state) => {
         faces: state.faces,
         currentFaces: state.currentFaces,
         availableFaces: state.availableFaces,
-        success: state.success
+        success: state.success,
+        points: state.points,
+        quote: state.quote
     }
 }
 

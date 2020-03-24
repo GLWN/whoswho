@@ -3,36 +3,36 @@
         "id": "0",
         "firstname": "Jay",
         "lastname": "Z",
-        "quote": "Hey Yo !"
+        "quote": "Je suis le mec de Beyoncé"
     },
     {
         "id": "1",
         "firstname": "Helen",
         "lastname": "Mirren",
-        "quote": "Good morning !"
+        "quote": "Je suis Elisabeth II"
     },
     {
         "id": "2",
         "firstname": "Clint",
         "lastname": "Eastwood",
-        "quote": "Die bastard !"
+        "quote": "Je suis l'inspecteur Harry"
     },
     {
         "id": "3",
         "firstname": "Christopher",
         "lastname": "Walken",
-        "quote": "Where's my head at?"
+        "quote": "Je suis un cavalier sans tête"
     },
     {
         "id": "4",
         "firstname": "Bill",
         "lastname": "Murray",
-        "quote": "Who you gonne call?"
+        "quote": "Je suis un chasseur de fantômes"
     },
     {
         "id": "5",
         "firstname": "Zack",
         "lastname": "Galifaniakis",
-        "quote": "What's up wierdo ?!"
+        "quote": "Je suis le gros d'Hollywood"
     }
 ]
