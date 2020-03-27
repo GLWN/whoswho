@@ -1,54 +1,37 @@
 import facesJson from '../faces.json';
+import shuffle from '../utils/shuffle';
 
-let sliceCount = 3;
-const maxFaceDisplay = 2;
 const availableFaces = [];
-let nextCounter = 0;
+const winPoints = 20;
 
 for(let i = 0; i < facesJson.length; i++) {
     availableFaces.push(i);
 }
-console.log(availableFaces);
 
-const shuffle = (array) => { // Fisher-Yates Modern Shuffle
-    let i = array.length, rdm, temp;
-    
-    while(--i > 0) {
-        rdm = Math.floor(Math.random() * (i + 1));
-        temp = array[rdm];
-        array[rdm] = array[i];
-        array[i] = temp;
-    }
-    return array;
-}
-// TODO case 2 faces restantes !!!
 const buildNewFace = (avFaces) => {
-    const faceList = facesJson.flatMap((face) => {
-        const faceSliced = [];
-        let shuffledFaces = [];
-        if(avFaces.length < 3) {
-            shuffledFaces = avFaces.sort(() => Math.random() - 0.5);
-            sliceCount--;
-        }else{
-            shuffledFaces = shuffle(avFaces);
-        }
-        // console.log(shuffledFaces);
-        for(let i = 0; i < sliceCount; i++) { // construct each face : HI - MID - LOW pattern
-            const {id, firstname, lastname, quote} = facesJson[shuffledFaces[i]];
-            faceSliced.push({
-                ...face,
-                id: id + "-" + i,
-                firstname: firstname,
-                lastname: lastname,
-                quote: quote,
-                faceId: parseInt(id),
-                sliceId: i,
-                try: 0
-            });
-        }
-        return faceSliced;
-    }).slice(0, 3);
-    return faceList;
+    const shuffledFaces = shuffle(avFaces);
+    const faceSliced = [];
+    const pushSlice = () => shuffledFaces.push(shuffledFaces[0]);
+
+    if(avFaces.length === 2) pushSlice();
+    if(avFaces.length === 1) {
+        pushSlice();
+        pushSlice();
+    }
+
+    for(let i = 0; i < 3; i++) {
+        const {id, firstname, lastname, quote} = facesJson[shuffledFaces[i]];
+        
+        faceSliced.push({
+            id: id + "-" + i,
+            firstname: firstname,
+            lastname: lastname,
+            quote: quote,
+            faceId: parseInt(id),
+            sliceId: i
+        })
+    }
+    return faceSliced;
 }
 
 const initialState = {
@@ -81,6 +64,7 @@ const appReducer = (state = initialState, action) => {
             console.log(state);
             return {
                 ...state,
+                'availableFaces': state.availableFaces.slice(0, state.availableFaces.length), //TODO
                 'currentFaces': buildNewFace(state.availableFaces),
                 'success': false
             }
@@ -91,10 +75,9 @@ const appReducer = (state = initialState, action) => {
                     faceId: action.id
                 }
             }) 
-
             return {
                 ...state,
-                'points': state.points + 20,
+                'points': state.points + winPoints,
                 'success': action.success,
                 'currentFaces': successFace,
                 'availableFaces': state.availableFaces.filter(faceId => faceId !== action.id)

@@ -20,10 +20,6 @@ class Slice extends Component {
         this.handleInputChange = this.handleInputChange.bind(this);
         
     }
-    
-    componentDidMount() {
-
-    }
 
     nextSlice = (e) => { // for A mode
         e.preventDefault();
@@ -44,7 +40,7 @@ class Slice extends Component {
     handleAnswer = (e) => {
         e.preventDefault();
         const input = this.answerInput.current.value;
-        const faceName = this.props.firstname + " " + this.props.lastname;
+        const faceName = this.props.firstname + (this.props.lastname ? " " + this.props.lastname : "");
         if(input.toLowerCase() === faceName.toLowerCase()) {
             this.setState({
                 'isOpened': false,
@@ -56,7 +52,6 @@ class Slice extends Component {
                 success: true
             });
         } else {
-            // this.answerInput.current.value = "";
             this.setState({
                 'isAnswered': true
             });
@@ -95,57 +90,54 @@ class Slice extends Component {
         
         return(
             <li className={`slice-wrapper slideIn ${slideInEffectRandom}`} onMouseLeave={this.closeQuestionLayer} style={{height: this.props.height + 'px'}} >
-                {/*style={{height: window.innerHeight/3}}*/}
-                {/* style={{height: this.updateDimensions() + 'px'}} */}
-                {/* <a href="" onClick={this.nextSlice}> for A mode */} 
-                    {
-                        this.state.isAnswered &&
-                        <div className="fail-overlay"></div>
-                    }
-                    <div className="slice-overlay" onClick={this.displayQuestion}></div>
-                    {
-                        this.state.isOpened &&
-                        <div className="question-overlay">
-                            <img className="icon-close" onClick={this.closeQuestionLayer} src={IconClose} />
-                            <div className="valign-wrapper center width-100">
-                                <div className="valign-inner">
-                                    <h2>My name is :</h2>
-                                    <form onSubmit={this.handleAnswer} className={this.state.isAnswered ? "shake-me" : ""}>
-                                        <input 
-                                            type="text"
-                                            className="input-text"
-                                            required
-                                            ref={this.answerInput} 
-                                            onChange={this.handleInputChange}
-                                            style={{
-                                                borderColor: this.state.isAnswered ? 'red' : 'white'
-                                            }}
-                                        />
-                                        <button type="submit" value="Submit" className="button">Valider</button>
-                                        {/* <button>VALIDATE</button> */}
-                                        <br />
-                                        {
-                                            !this.state.isHintShown && 
-                                            <a className="indice" href="" onClick={this.showHint}>voir l'indice (-5 points)</a>                                
-                                        }
-                                        {
-                                            this.state.isHintShown && 
-                                            <p className="indice">{this.props.quote}</p>
-                                        }
-                                        
-                                    </form>
-                                </div>
+                {
+                    this.state.isAnswered &&
+                    <div className="fail-overlay"></div>
+                }
+                <div className="slice-overlay" onClick={this.displayQuestion}></div>
+                {
+                    this.state.isOpened &&
+                    <div className="question-overlay">
+                        <img className="icon-close" onClick={this.closeQuestionLayer} src={IconClose} />
+                        <div className="valign-wrapper center width-100">
+                            <div className="valign-inner">
+                                <h2>My name is :</h2>
+                                <form onSubmit={this.handleAnswer} className={this.state.isAnswered ? "shake-me" : ""}>
+                                    <input
+                                        type="text"
+                                        className="input-text"
+                                        required
+                                        ref={this.answerInput} 
+                                        onChange={this.handleInputChange}
+                                        style={{
+                                            borderColor: this.state.isAnswered ? 'red' : 'white'
+                                        }}
+                                    />
+                                    <button type="submit" value="Submit" className="button">Valider</button>
+                                    {/* <button>VALIDATE</button> */}
+                                    <br />
+                                    {
+                                        !this.state.isHintShown && 
+                                        <a className="indice" href="" onClick={this.showHint}>voir l'indice (-5 points)</a>                                
+                                    }
+                                    {
+                                        this.state.isHintShown && 
+                                        <p className="indice">{this.props.quote}</p>
+                                    }
+                                    
+                                </form>
                             </div>
                         </div>
-                    }
-                    {/* <div className="slider slide-in"> */}
-                    <img className="bg" src={`_img/bg-${this.props.sliceId}.jpg`} />
-                    <img 
-                        className="img-slice" 
-                        onLoad={() => console.log(this.myImg.current.offsetHeight)}
-                        ref={this.myImg} 
-                        src={`_img/face_${this.props.faceId}-${this.props.sliceId}.jpg`} 
-                    />
+                    </div>
+                }
+                {/* <div className="slider slide-in"> */}
+                {/* <img className="bg" src={`_img/bg-${this.props.sliceId}.jpg`} /> */}
+                <img 
+                    className="img-slice" 
+                    // onLoad={() => console.log(this.myImg.current.offsetHeight)}
+                    ref={this.myImg} 
+                    src={`_img/face_${this.props.faceId}-${this.props.sliceId}.jpg`} 
+                />
             </li>
         )
     }

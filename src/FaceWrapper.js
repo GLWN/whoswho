@@ -7,32 +7,22 @@ class FaceWrapper extends Component {
     constructor() {
         super();
         this.updateDimensions = this.updateDimensions.bind(this);
-        this.faceRef = React.createRef();
     }
 
     componentDidMount() {
         window.addEventListener("resize", this.updateDimensions);
-    }
-    
-    componentDidUpdate() {
-        console.log(this.faceRef.current.clientHeight);
     }
 
     updateDimensions() {
         const height = window.innerHeight;
         
         // ratio matter
-        console.log(height);
         return parseInt(height);
-    }
-
-    nextSlice = () => {
-        
     }
 
     render() {
         return(
-            <div className="face-wrapper" ref={this.faceRef}>
+            <div className="face-wrapper">
                 {
                     this.props.success &&
                     <div className="success-overlay fade-in"></div>

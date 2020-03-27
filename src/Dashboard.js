@@ -1,10 +1,5 @@
 import React, { Component } from 'react';
-import store from'./store/store';
 import { connect } from 'react-redux';
-
-
-const faceMargin = 20; // css bottom margin
-let step = 4;
 
 class Dashboard extends Component {
     constructor(props) {
@@ -16,7 +11,6 @@ class Dashboard extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        // console.log(prevProps.points + " / " + this.props.points);
         if(this.props.points !== prevProps.points) {
             this.animateValue(prevProps.points, this.props.points, this.state.counterDuration);
         }
@@ -24,12 +18,6 @@ class Dashboard extends Component {
 
     nextFace = (e) => {
         e.preventDefault();
-        const wrapper = document.getElementsByClassName('face-wrapper--list')[0];
-        const li = wrapper.getElementsByTagName("li");
-        for(let i = 0; i < 3; i++) { // get 3 slices height
-            step += li[i].offsetHeight;
-        }
-        
         this.props.dispatch({
             type: 'NEXT_FACE'
         })
@@ -74,30 +62,61 @@ class Dashboard extends Component {
         run();
     }
 
+    displayFaceCount = () => {
+        let statusText = "";
+        const nbFaces = this.props.availableFaces.length
+
+        switch (nbFaces) {
+            case 0 :
+                statusText = "Le jeu est terminé, bravo !";
+                return statusText;
+            case 1 :
+                statusText = "Il ne reste plus qu'une personne à trouver" ;
+                return statusText;
+            case 2 :
+                statusText = "Il ne reste plus que 2 personnes à trouver" ;
+                return statusText;
+            default :
+                statusText = "Il reste " + this.props.availableFaces.length + " personnes à trouver" ;
+                return statusText;
+        }
+    }
+
     render() {
+        const {points, success, availableFaces} = this.props;
+
         return(
             <div className="dashboard not-selectable">
                 {/* <button onClick={this.nextFace}>
                     <span>Next</span>
                 </button> */}
                 <h1>WHO's<br />WHO?</h1>
-                <div onClick={this.nextFace} className="container-1">
-                    <button className="button button-next">
-                        <span 
-                            className={this.props.success ? "animate-flicker" : ""}
-                        >»</span>
-                    </button>
-                </div>
+                {availableFaces.length > 0 &&
+                    <div onClick={this.nextFace} className="container-1">
+                        <button className="button button-next">
+                            <span className={success ? "animate-flicker" : ""}>»</span>
+                        </button>
+                    </div>
+                }
+                
+                {availableFaces.length === 0 &&
+                    <div className="container-1">
+                        <button className="button button-next">
+                            <span className={success ? "animate-flicker" : ""}>End</span>
+                        </button>
+                    </div>
+                }   
 
                 <p className="counter-title" >
                     Score : 
                 </p>
                 <p className="counter" id="counter" style={{
-                    color: this.props.points < 0
+                    color: points < 0
                     ? "red"
                     : "black"
                 }}>{this.state.counter}
                 </p>
+            <p className="counter-faces">{this.displayFaceCount()}</p>
                 <a className="reset" href="" onClick={this.resetApp}>reset</a>
             </div>
         )
@@ -107,7 +126,8 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
     return {
         'points': state.points,
-        'success': state.success
+        'success': state.success,
+        'availableFaces': state.availableFaces
     }
 }
 

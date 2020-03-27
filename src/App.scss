@@ -38,7 +38,7 @@ h1 {
 	margin: 0 0 30px 0;
 	font-family: 'Merienda', cursive;
 	text-align: center;
-	font-size: 4em;
+	font-size: 3em;
 	line-height: 0.9em;
 	font-weight: 600;
 }
@@ -111,6 +111,13 @@ p, span, h1, h2, h3, h4 {
 		background: #FFF;
 		font-weight: bold;
 		// display: inline-block;
+	}
+	.counter-faces {
+		font-size: 12px;
+		padding: 10px;
+		background: #FFF;
+		color: #000;
+		text-align: center;
 	}
 	.reset {
 		color: #999
@@ -561,4 +568,15 @@ ul.face-wrapper--list li:nth-child(3n+3) {
 	 -moz-animation: flickerAnimation 1s infinite;
 	 -o-animation: flickerAnimation 1s infinite;
 	  animation: flickerAnimation 1s infinite;
+  }
+
+  @media screen and (max-width: 960px) {
+	.content {
+		padding: 2% 10%;
+	}
+  }
+  @media screen and (max-width: 640px) {
+	.content {
+		padding: 2%;
+	}
   }

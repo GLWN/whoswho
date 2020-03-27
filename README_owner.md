@@ -22,5 +22,18 @@ TODO :
 enlever success face de la liste OK sauf case 2 et 1
 shake effect on error OK
 animate stripes OK
-increment score : https://stackoverflow.com/questions/16994662/count-animation-from-number-a-to-b
+increment score : https://stackoverflow.com/questions/16994662/count-animation-from-number-a-to-b OK
 optimize : unbind, destroy views... TODO
+
+prio : 
+case 1 & 2 OK
+case 0 !!! --> END
+faces left ! (counter based on availableFaces.length) BUG !! resolved with slice... investigate that
+clean + optimize
+test
+final styles
+strip anim behaviour (qq chose de plus foufou)
+add data persistance to store best scores
+END STATE ! ==> desactivate next btn
+
+array slice cheulou dans le next du reducer, et ça passe...
