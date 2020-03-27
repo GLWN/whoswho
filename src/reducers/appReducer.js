@@ -39,6 +39,7 @@ const initialState = {
     'faces': facesJson,
     'currentFaces': buildNewFace(availableFaces),
     'success': false,
+    'rulesAreShown': false,
     'points': 0
 } 
 
@@ -61,7 +62,6 @@ const appReducer = (state = initialState, action) => {
                 })
             }
         case "NEXT_FACE":
-            console.log(state);
             return {
                 ...state,
                 'availableFaces': state.availableFaces.slice(0, state.availableFaces.length), //TODO
@@ -91,6 +91,11 @@ const appReducer = (state = initialState, action) => {
             return {
                 ...initialState,
                 'currentFaces': buildNewFace(availableFaces)
+            }
+        case "HANDLE_RULES":
+            return {
+                ...state,
+                'rulesAreShown': !state.rulesAreShown
             }
         default:
             return state;

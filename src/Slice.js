@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import IconClose from './img/icons/close.svg'
+import IconClose from './img/icons/close.svg';
+import shuffle from './utils/shuffle.js';
 
 class Slice extends Component {
     constructor(props) {
@@ -85,11 +86,12 @@ class Slice extends Component {
     }
 
     render() {
-        const slideInEffect = ["slideIn-1", "slideIn-2", "slideIn-3", "slideIn-4", "slideIn-5"];
-        const slideInEffectRandom = slideInEffect[Math.floor(Math.random() * slideInEffect.length)];
+        const effect = ["slideIn-1", "slideIn-2", "slideIn-3", "slideIn-4", "slideIn-5"];
+        const effectRandom = shuffle(effect);
+        console.log(effectRandom);
         
         return(
-            <li className={`slice-wrapper slideIn ${slideInEffectRandom}`} onMouseLeave={this.closeQuestionLayer} style={{height: this.props.height + 'px'}} >
+            <li className={`slice-wrapper slideIn ${effectRandom[0]}`} onMouseLeave={this.closeQuestionLayer} style={{height: this.props.height + 'px'}} >
                 {
                     this.state.isAnswered &&
                     <div className="fail-overlay"></div>
@@ -106,6 +108,7 @@ class Slice extends Component {
                                     <input
                                         type="text"
                                         className="input-text"
+                                        placeholder="Entrez mon nom"
                                         required
                                         ref={this.answerInput} 
                                         onChange={this.handleInputChange}

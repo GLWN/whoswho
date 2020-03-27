@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Rules from './Rules'
 
 class Dashboard extends Component {
     constructor(props) {
@@ -28,6 +29,13 @@ class Dashboard extends Component {
         this.props.dispatch({
             type: 'RESET_APP'
         })
+    }
+
+    showRules = (e) => {
+        e.preventDefault();
+        this.props.dispatch({
+            type: 'HANDLE_RULES'
+        });
     }
 
     animateValue = (start, end, duration) => {
@@ -87,9 +95,9 @@ class Dashboard extends Component {
 
         return(
             <div className="dashboard not-selectable">
-                {/* <button onClick={this.nextFace}>
-                    <span>Next</span>
-                </button> */}
+                { this.props.rulesAreShown &&
+                    <Rules />
+                }
                 <h1>WHO's<br />WHO?</h1>
                 {availableFaces.length > 0 &&
                     <div onClick={this.nextFace} className="container-1">
@@ -102,13 +110,13 @@ class Dashboard extends Component {
                 {availableFaces.length === 0 &&
                     <div className="container-1">
                         <button className="button button-next">
-                            <span className={success ? "animate-flicker" : ""}>End</span>
+                            <span className={success ? "animate-flicker" : ""}>bye</span>
                         </button>
                     </div>
                 }   
 
                 <p className="counter-title" >
-                    Score : 
+                    Score
                 </p>
                 <p className="counter" id="counter" style={{
                     color: points < 0
@@ -116,8 +124,10 @@ class Dashboard extends Component {
                     : "black"
                 }}>{this.state.counter}
                 </p>
-            <p className="counter-faces">{this.displayFaceCount()}</p>
-                <a className="reset" href="" onClick={this.resetApp}>reset</a>
+                <p className="credits">Photo credits : Martin Schoeller</p>
+                <p className="counter-faces">{this.displayFaceCount()}</p>
+                <a className="rules button" href="" onClick={this.showRules}>règles</a>
+                <a className="reset button" href="" onClick={this.resetApp}>reset</a>
             </div>
         )
     }
@@ -127,7 +137,8 @@ const mapStateToProps = (state) => {
     return {
         'points': state.points,
         'success': state.success,
-        'availableFaces': state.availableFaces
+        'availableFaces': state.availableFaces,
+        'rulesAreShown': state.rulesAreShown
     }
 }
 
