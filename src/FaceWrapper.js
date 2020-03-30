@@ -4,23 +4,6 @@ import Slice from './Slice';
 import { connect } from 'react-redux';
 
 class FaceWrapper extends Component {
-    constructor() {
-        super();
-        this.updateDimensions = this.updateDimensions.bind(this);
-        this.faceWrapper = React.createRef();
-    }
-
-    componentDidMount() {
-        window.addEventListener("resize", this.updateDimensions);
-    }
-
-    updateDimensions() {
-        const height = window.innerHeight;
-        
-        // ratio matter
-        return parseInt(height);
-    }
-
     render() {
         return(
             <div className="face-wrapper">
@@ -28,7 +11,7 @@ class FaceWrapper extends Component {
                     this.props.success &&
                     <div className="success-overlay fade-in"></div>
                 }
-                <ul className="wave face-wrapper--list" style={{}} ref={this.faceWrapper}>
+                <ul className="wave face-wrapper--list">
                     {this.props.currentFaces.map((face) => (
                         <Slice
                             key={`face_${face.faceId}-${face.sliceId}`}
@@ -37,8 +20,7 @@ class FaceWrapper extends Component {
                             faceId={face.faceId}
                             sliceId={face.sliceId}
                             points={face.points}
-                            quote={face.quote}
-                            /* height={this.updateDimensions/3} */ />
+                            quote={face.quote} />
                     ))}
                 </ul>
             </div>
