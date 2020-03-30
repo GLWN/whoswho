@@ -7,6 +7,7 @@ class FaceWrapper extends Component {
     constructor() {
         super();
         this.updateDimensions = this.updateDimensions.bind(this);
+        this.faceWrapper = React.createRef();
     }
 
     componentDidMount() {
@@ -27,7 +28,7 @@ class FaceWrapper extends Component {
                     this.props.success &&
                     <div className="success-overlay fade-in"></div>
                 }
-                <ul className="wave face-wrapper--list" style={{}}>
+                <ul className="wave face-wrapper--list" style={{}} ref={this.faceWrapper}>
                     {this.props.currentFaces.map((face) => (
                         <Slice
                             key={`face_${face.faceId}-${face.sliceId}`}
@@ -37,7 +38,7 @@ class FaceWrapper extends Component {
                             sliceId={face.sliceId}
                             points={face.points}
                             quote={face.quote}
-                            height={this.updateDimensions/3} />
+                            /* height={this.updateDimensions/3} */ />
                     ))}
                 </ul>
             </div>

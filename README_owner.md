@@ -28,12 +28,16 @@ optimize : unbind, destroy views... TODO
 prio : 
 case 1 & 2 OK
 case 0 !!! --> END
-faces left ! (counter based on availableFaces.length) BUG !! resolved with slice... investigate that
+faces left ! (counter based on availableFaces.length) BUG !! resolved with slice... investigate that OK
 clean + optimize
 test
 final styles
 strip anim behaviour (qq chose de plus foufou)
 add data persistance to store best scores
-END STATE ! ==> desactivate next btn
+END STATE ! ==> desactivate next btn OK
+GIVE UP button
 
 array slice cheulou dans le next du reducer, et ça passe...
+
+HOST ON GDRIVE :
+https://www.process.st/how-to-host-a-website-on-google-drive-for-free/

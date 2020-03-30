@@ -13,6 +13,7 @@ class Slice extends Component {
         }
         this.answerInput = React.createRef();
         this.myImg = React.createRef();
+        this.slice = React.createRef();
 
         //bindings
         this.handleAnswer = this.handleAnswer.bind(this);
@@ -20,6 +21,16 @@ class Slice extends Component {
         this.closeQuestionLayer = this.closeQuestionLayer.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
         
+    }
+
+    componentDidMount() {
+        // const listHeight = this.slice.current.clientHeight;
+        // window.addEventListener("resize", this.updateDimensions);
+        // console.log(listHeight);
+    }
+
+    getImgHeight() {
+        console.log(this);
     }
 
     nextSlice = (e) => { // for A mode
@@ -91,7 +102,12 @@ class Slice extends Component {
         console.log(effectRandom);
         
         return(
-            <li className={`slice-wrapper slideIn ${effectRandom[0]}`} onMouseLeave={this.closeQuestionLayer} style={{height: this.props.height + 'px'}} >
+            <li 
+                className={`slice-wrapper slideIn ${effectRandom[0]}`} 
+                onMouseLeave={this.closeQuestionLayer} 
+                style={{height: this.props.height + 'px'}}
+                ref={this.slice}
+            >
                 {
                     this.state.isAnswered &&
                     <div className="fail-overlay"></div>
@@ -137,9 +153,10 @@ class Slice extends Component {
                 {/* <img className="bg" src={`_img/bg-${this.props.sliceId}.jpg`} /> */}
                 <img 
                     className="img-slice" 
-                    // onLoad={() => console.log(this.myImg.current.offsetHeight)}
+                    onLoad={() => console.log(this.myImg.current.offsetHeight)}
                     ref={this.myImg} 
-                    src={`_img/face_${this.props.faceId}-${this.props.sliceId}.jpg`} 
+                    src={`_img/face_${this.props.faceId}-${this.props.sliceId}.jpg`}
+                    // onLoad={console.log("YO")}
                 />
             </li>
         )
