@@ -61,7 +61,7 @@ class Dashboard extends Component {
             this.setState({
                 'counter': value
             })
-            if (value == end) {
+            if (value === end) {
                 clearInterval(timer);
             }
         }
@@ -126,8 +126,8 @@ class Dashboard extends Component {
                 </p>
                 <p className="credits">Photo credits : Martin Schoeller</p>
                 <p className="counter-faces">{this.displayFaceCount()}</p>
-                <a className="rules button" href="" onClick={this.showRules}>règles</a>
-                <a className="reset button" href="" onClick={this.resetApp}>reset</a>
+                <button className="rules button" onClick={this.showRules}>règles</button>
+                <button className="reset button" onClick={this.resetApp}>reset</button>
             </div>
         )
     }

@@ -64,7 +64,7 @@ const appReducer = (state = initialState, action) => {
         case "NEXT_FACE":
             return {
                 ...state,
-                'availableFaces': state.availableFaces.slice(0, state.availableFaces.length), //TODO
+                'availableFaces': state.availableFaces.slice(0, state.availableFaces.length),
                 'currentFaces': buildNewFace(state.availableFaces),
                 'success': false
             }

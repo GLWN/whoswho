@@ -18,7 +18,7 @@ class Rules extends Component {
     render() {
         return(
             <div className="rules-layer">
-                <img className="icon-close" onClick={this.closeLayer} src={IconClose} />
+                <img className="icon-close" alt="close icon" onClick={this.closeLayer} src={IconClose} />
                 <h3>Règles du Who's Who</h3>
                 <ul>
                     <li>

@@ -49,3 +49,4 @@ https://drive.google.com/open?id=1hYF1egcT7qNFQ2OMhBE21pWPKCBwBFNS
 
 TODO :
 async / promise / async/await
+loading img

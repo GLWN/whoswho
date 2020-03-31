@@ -12,36 +12,15 @@ class Slice extends Component {
             isAnswered: false
         }
         this.answerInput = React.createRef();
-        this.myImg = React.createRef();
-        this.slice = React.createRef();
 
         //bindings
         this.handleAnswer = this.handleAnswer.bind(this);
         this.displayQuestion = this.displayQuestion.bind(this);
         this.closeQuestionLayer = this.closeQuestionLayer.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
-        
     }
 
-    componentDidMount() {
-        // const listHeight = this.slice.current.clientHeight;
-        // window.addEventListener("resize", this.updateDimensions);
-        // console.log(listHeight);
-    }
-
-    getImgHeight() {
-        console.log(this);
-    }
-
-    nextSlice = (e) => { // for A mode
-        e.preventDefault();
-        // this.props.dispatch({
-        //     'type': 'NEXT_SLICE',
-        //     'faceId': this.props.faceId,
-        //     'sliceId': this.props.sliceId
-        // })
-    }
-    displayQuestion = () => { // for B mode
+    displayQuestion = () => {
         if (!this.state.isOpened) {
             this.setState({
                 isOpened: true
@@ -49,10 +28,12 @@ class Slice extends Component {
             
         }
     }
+
     handleAnswer = (e) => {
         e.preventDefault();
         const input = this.answerInput.current.value;
         const faceName = this.props.firstname + (this.props.lastname ? " " + this.props.lastname : "");
+        // WIN
         if(input.toLowerCase() === faceName.toLowerCase()) {
             this.setState({
                 'isOpened': false,
@@ -63,6 +44,7 @@ class Slice extends Component {
                 id: this.props.faceId,
                 success: true
             });
+        // FAIL
         } else {
             this.setState({
                 'isAnswered': true
@@ -99,14 +81,12 @@ class Slice extends Component {
     render() {
         const effect = ["slideIn-1", "slideIn-2", "slideIn-3", "slideIn-4", "slideIn-5"];
         const effectRandom = shuffle(effect);
-        console.log(effectRandom);
         
         return(
             <li 
                 className={`slice-wrapper slideIn ${effectRandom[0]}`} 
                 onMouseLeave={this.closeQuestionLayer} 
                 style={{height: this.props.height + 'px'}}
-                ref={this.slice}
             >
                 {
                     this.state.isAnswered &&
@@ -116,7 +96,7 @@ class Slice extends Component {
                 {
                     this.state.isOpened &&
                     <div className="question-overlay">
-                        <img className="icon-close" onClick={this.closeQuestionLayer} src={IconClose} />
+                        <img className="icon-close" alt="close icon" onClick={this.closeQuestionLayer} src={IconClose} />
                         <div className="valign-wrapper center width-100">
                             <div className="valign-inner">
                                 <h2>My name is :</h2>
@@ -133,11 +113,10 @@ class Slice extends Component {
                                         }}
                                     />
                                     <button type="submit" value="Submit" className="button">Valider</button>
-                                    {/* <button>VALIDATE</button> */}
                                     <br />
                                     {
                                         !this.state.isHintShown && 
-                                        <a className="indice" href="" onClick={this.showHint}>voir l'indice (-5 points)</a>                                
+                                        <button className="indice" onClick={this.showHint}>voir l'indice (-5 points)</button>                                
                                     }
                                     {
                                         this.state.isHintShown && 
@@ -149,14 +128,10 @@ class Slice extends Component {
                         </div>
                     </div>
                 }
-                {/* <div className="slider slide-in"> */}
-                {/* <img className="bg" src={`_img/bg-${this.props.sliceId}.jpg`} /> */}
                 <img 
-                    className="img-slice" 
-                    onLoad={() => console.log(this.myImg.current.offsetHeight)}
-                    ref={this.myImg} 
+                    className="img-slice"
+                    alt="face slice"
                     src={`_img/face_${this.props.faceId}-${this.props.sliceId}.jpg`}
-                    // onLoad={console.log("YO")}
                 />
             </li>
         )
