@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import Slice from './Slice';
-
+import Slice from './components/Slice';
 import { connect } from 'react-redux';
 
 class FaceWrapper extends Component {
     render() {
+        const { success, currentFaces } = this.props;
+
         return(
             <div className="face-wrapper">
                 {
-                    this.props.success &&
+                    success &&
                     <div className="success-overlay fade-in"></div>
                 }
                 <ul className="wave face-wrapper--list">
-                    {this.props.currentFaces.map((face) => (
+                    {currentFaces.map((face) => (
                         <Slice
                             key={`face_${face.faceId}-${face.sliceId}`}
                             firstname={face.firstname}

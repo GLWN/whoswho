@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import IconClose from './img/icons/close.svg';
-import shuffle from './utils/shuffle.js';
+import IconClose from '../img/icons/close.svg';
+import shuffle from '../utils/shuffle.js';
 
 class Slice extends Component {
     constructor(props) {
@@ -11,6 +11,7 @@ class Slice extends Component {
             isHintShown: false,
             isAnswered: false
         }
+
         this.answerInput = React.createRef();
 
         //bindings
@@ -131,7 +132,7 @@ class Slice extends Component {
                 <img 
                     className="img-slice"
                     alt="face slice"
-                    src={`_img/face_${this.props.faceId}-${this.props.sliceId}.jpg`}
+                    src={`img/face_${this.props.faceId}-${this.props.sliceId}.jpg`}
                 />
             </li>
         )

@@ -1,5 +1,6 @@
 // VARIABLES
 $color: #444;
+// $color-2 : paleturquoise;
 $color-2 : pink;
 
 // GENERAL & HELPERS
@@ -17,6 +18,10 @@ select:focus,
 textarea:focus,
 button:focus {
 	outline: none;
+}
+
+.text-color {
+	color: $color-2;
 }
 
 .width-100 {
@@ -37,19 +42,20 @@ html, body {
 
 
 h1 {
-	margin: 0 0 30px 0;
+	margin: 10px 0 30px 0;
 	font-family: 'Merienda', cursive;
 	text-align: center;
 	font-size: 3em;
 	line-height: 0.9em;
 	font-weight: 600;
+	color: $color-2;
 }
 
 h2 {
 	color: #000;
 }
 
-p, span, h1, h2, h3, h4 {
+p, span, h2, h3, h4 {
 	color: #FFF;
 }
 
@@ -69,8 +75,6 @@ p, span, h1, h2, h3, h4 {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	// top: 45%;
-	// transform: translateY(-50%);
 }
 .content {
 	opacity: 0;
@@ -81,19 +85,14 @@ p, span, h1, h2, h3, h4 {
 }
 .face-wrapper, .dashboard {
 	overflow: hidden;
-	// align-self: flex-start;
 	align-self: center;
-	// border: 20px solid #000;
 }
 
 .face-wrapper {
-	// width: 60%;
 	flex: 2;
 	position: relative;
 	max-height: 620px;
-	// border-right: 2px solid #FFF;
 	ul.face-wrapper--list {
-		// height: 100%;
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -111,7 +110,6 @@ p, span, h1, h2, h3, h4 {
 			font-size: 0;
 			z-index: 2;
 			border-bottom: 4px solid #000;
-			// min-height: (100% / 3);
 		
 			-webkit-transform: translateZ(0px);
 				-moz-transform: translateZ(0px);
@@ -142,12 +140,16 @@ p, span, h1, h2, h3, h4 {
 				z-index: 9;
 				background-color: rgba(255, 255, 255, 0.8);
 				.indice {
+					padding: 0;
+					color: #000;
 					font-style: italic;
 					text-decoration: none;
-					color: #000;
 					display: inline-block;
 					font-size: 14px;
 					margin: 5px 0 0 0;
+					border: none;
+					background: none;
+					cursor: pointer;
 				}
 			}
 			.fail-overlay {
@@ -171,9 +173,6 @@ p, span, h1, h2, h3, h4 {
 				z-index: 1;
 				transform: translateX(-100%);
 				-webkit-transform: translateX(-100%);
-	
-				// animation: slide-in 0.5s forwards;
-				// -webkit-animation: slide-in 0.5s forwards;
 			}
 			&.slideIn-1 {
 							animation: slide-in ease 0.4s forwards;
@@ -212,7 +211,6 @@ p, span, h1, h2, h3, h4 {
 .dashboard {
 	background: #000;
 	position:relative;
-	// width: 40%;
 	flex: 1;
 	vertical-align: top;
 	padding: 20px;
@@ -257,10 +255,6 @@ p, span, h1, h2, h3, h4 {
 					font-size: 20px;
 					margin-top: 0;
 				}
-				span {
-					// font-size: 20px;
-					color: pink;
-				}
 			}
 		}
 		.credits p {
@@ -278,25 +272,24 @@ p, span, h1, h2, h3, h4 {
 		text-align: center;
 	}
 	.counter {
-		padding: 10px;
 		text-align: center;
 		margin: 0;
 		font-size: 3em;
 		color: #000;
 		background: #FFF;
 		font-weight: bold;
-		// display: inline-block;
 	}
 	.counter-faces {
-		font-size: 16px;
+		font-size: 14px;
 		padding: 10px;
-		background: #FFF;
+		background: $color-2;
 		color: #000;
 		text-align: center;
 	}
 	.credits {
 		font-size: 14px;
-		color: grey;
+		color: $color-2;
+		text-align: center
 	}
 	.rules {
 		background: #FFF;
@@ -305,16 +298,12 @@ p, span, h1, h2, h3, h4 {
 	}
 	.reset {
 		width: 48%;
-		color: red;
+		color: $color-2;
+		background: #000;
 	}
 }
 
-.valign {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	-webkit-transform: translateY(-50%);
-}
+
 
 .valign-wrapper {
 	display: table;
@@ -338,13 +327,14 @@ input {
     box-shadow: 
       inset 0 0 8px  rgba(0,0,0,0.1),
             0 0 16px rgba(0,0,0,0.1); 
-    padding: 5px;
+    padding: 10px;
     background: rgba(255,255,255,0.8);
-	margin: 0 10px 0 0;
+	margin: 0 10px 0 10px;
 }
 
 .input-text {
 	font-size: 18px;
+	padding-left: 10px;
 }
 
 
@@ -591,14 +581,17 @@ ul.face-wrapper--list li:nth-child(3n+3) {
 }
 
 // override for Next Btn
-
 .button-next {
 	width: 100%;
 	color: #000;
-	height: 140px;
-	// background: #AAA;
-	background: #000;
-	border: 1px solid #FFF;
+	background: #DDD;
+	border: 4px solid #555;
+	overflow: hidden;
+	.picto-face, .picto-win {
+		width: 100%;
+		margin: 10px 0 0 0;
+		max-width: 200px;
+	}
 	span {
 		font-size: 100px;
 		font-family: auto;
@@ -613,8 +606,9 @@ ul.face-wrapper--list li:nth-child(3n+3) {
 		transform: skewX(-45deg) translateX(-10em);
 	}
 	&:hover {
-		color: #FFF;
-		border-bottom: 1px solid #FFF;
+		color: $color-2;
+		border: 4px solid #FFF;
+		background: $color-2;
 		&:before {
 			transform: skewX(-45deg) translateX(40.5em);
 			transition: all 0.2s ease-in-out;

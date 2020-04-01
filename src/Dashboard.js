@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Rules from './Rules'
+import Rules from './components/Rules'
+import pictoFace from './img/picto/picto-face-3d.png';
+import pictoWin from './img/picto/picto-applause-win.jpg';
 
 class Dashboard extends Component {
     constructor(props) {
@@ -12,8 +14,9 @@ class Dashboard extends Component {
     }
 
     componentDidUpdate(prevProps) {
-        if(this.props.points !== prevProps.points) {
-            this.animateValue(prevProps.points, this.props.points, this.state.counterDuration);
+        const { points } = this.props;
+        if(points !== prevProps.points) {
+            this.animateValue(prevProps.points, points, this.state.counterDuration);
         }
     }
 
@@ -39,17 +42,12 @@ class Dashboard extends Component {
     }
 
     animateValue = (start, end, duration) => {
-        // assumes integer values for start and end
         let range = end - start;
-        // no timer shorter than 50ms (not really visible any way)
         let minTimer = 50;
-        // calc step time to show all interediate values
         let stepTime = Math.abs(Math.floor(duration / range));
         
-        // never go below minTimer
         stepTime = Math.max(stepTime, minTimer);
         
-        // get current time and calculate desired end time
         let startTime = new Date().getTime();
         let endTime = startTime + duration;
         let timer;
@@ -91,29 +89,31 @@ class Dashboard extends Component {
     }
 
     render() {
-        const {points, success, availableFaces} = this.props;
+        const { points, success, availableFaces, rulesAreShown } = this.props;
 
         return(
             <div className="dashboard not-selectable">
-                { this.props.rulesAreShown &&
+                { rulesAreShown &&
                     <Rules />
                 }
                 <h1>WHO's<br />WHO?</h1>
-                {availableFaces.length > 0 &&
+                { availableFaces.length > 0 &&
                     <div onClick={this.nextFace} className="container-1">
                         <button className="button button-next">
-                            <span className={success ? "animate-flicker" : ""}>»</span>
+                            <img className={success ? "animate-flicker picto-face" : "picto-face"} src={pictoFace} alt="face picto" />
                         </button>
                     </div>
                 }
                 
-                {availableFaces.length === 0 &&
+                { /**** WIN ****/ }
+                { availableFaces.length === 0 &&
                     <div className="container-1">
                         <button className="button button-next">
-                            <span className={success ? "animate-flicker" : ""}>bye</span>
+                        <img className="animate-flicker picto-win" src={pictoWin} alt="win picto" />
                         </button>
                     </div>
-                }   
+                }
+                { /****=====****/ }
 
                 <p className="counter-title" >
                     Score
@@ -122,8 +122,8 @@ class Dashboard extends Component {
                     color: points < 0
                     ? "red"
                     : "black"
-                }}>{this.state.counter}
-                </p>
+                }}>{this.state.counter}</p>
+
                 <p className="credits">Photo credits : Martin Schoeller</p>
                 <p className="counter-faces">{this.displayFaceCount()}</p>
                 <button className="rules button" onClick={this.showRules}>règles</button>

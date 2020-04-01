@@ -201,7 +201,7 @@
         "id": "33",
         "firstname": "Louis",
         "lastname": "CK",
-        "quote": "LE comédien de stand-up"
+        "quote": "Je suis un comédien de stand-up américain"
     },
     {
         "id": "34",
@@ -213,7 +213,7 @@
         "id": "35",
         "firstname": "Russell",
         "lastname": "Crowe",
-        "quote": "Maximus"
+        "quote": "Je suis Maximus"
     },
     {
         "id": "36",
@@ -225,7 +225,7 @@
         "id": "37",
         "firstname": "Lance",
         "lastname": "Armstrong",
-        "quote": "Je suis un cycliste américain"
+        "quote": "Je suis un cycliste/tricheur américain"
     },
     {
         "id": "38",
@@ -327,7 +327,7 @@
         "id": "54",
         "firstname": "Hugh",
         "lastname": "Jackman",
-        "quote": "Wolverine"
+        "quote": "Je suis Wolverine"
     },
     {
         "id": "55",
@@ -337,13 +337,13 @@
     },
     {
         "id": "56",
-        "firstname": "Georges",
+        "firstname": "George",
         "lastname": "Clinton",
         "quote": "Je suis le maître de la P-Funk"
     },
     {
         "id": "57",
-        "firstname": "Georges",
+        "firstname": "George",
         "lastname": "Clooney",
         "quote": "What else?"
     },
@@ -369,13 +369,13 @@
         "id": "61",
         "firstname": "Daniel",
         "lastname": "Radcliffe",
-        "quote": "Harry Potter"
+        "quote": "Je suis Harry Potter"
     },
     {
         "id": "62",
         "firstname": "Emma",
         "lastname": "Watson",
-        "quote": "Hermione"
+        "quote": "Je suis Hermione"
     },
     {
         "id": "63",
@@ -429,7 +429,7 @@
         "id": "71",
         "firstname": "Christoph",
         "lastname": "Waltz",
-        "quote": ""
+        "quote": "Je suis le méchant d'Inglorious Basterds"
     },
     {
         "id": "72",
@@ -453,7 +453,7 @@
         "id": "75",
         "firstname": "Bono",
         "lastname": "",
-        "quote": "U2"
+        "quote": "Bloody Sunday"
     },
     {
         "id": "76",
