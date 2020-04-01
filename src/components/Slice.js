@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import IconClose from '../img/icons/close.svg';
-import shuffle from '../utils/shuffle.js';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import IconClose from '../img/icons/close.svg'
+import shuffle from '../utils/shuffle.js'
+import conf from '../conf'
 
 class Slice extends Component {
     constructor(props) {
@@ -34,6 +35,8 @@ class Slice extends Component {
         e.preventDefault();
         const input = this.answerInput.current.value;
         const faceName = this.props.firstname + (this.props.lastname ? " " + this.props.lastname : "");
+        const { success, fail } = conf.points;
+
         // WIN
         if(input.toLowerCase() === faceName.toLowerCase()) {
             this.setState({
@@ -43,6 +46,7 @@ class Slice extends Component {
             this.props.dispatch({
                 type: 'SHOW_SUCCESS',
                 id: this.props.faceId,
+                points: success,
                 success: true
             });
         // FAIL
@@ -52,19 +56,21 @@ class Slice extends Component {
             });
             this.props.dispatch({
                 type: 'COUNT_FAIL',
-                points: 10
+                points: fail
             });
         }
     }
 
     showHint = (e) => {
         e.preventDefault();
+        const { clue } = conf.points;
+
         this.setState({
             isHintShown: !this.state.isHintShown
         });
         this.props.dispatch({
             type: 'COUNT_FAIL',
-            points: 5
+            points: clue
         });
     }
 
@@ -82,6 +88,8 @@ class Slice extends Component {
     render() {
         const effect = ["slideIn-1", "slideIn-2", "slideIn-3", "slideIn-4", "slideIn-5"];
         const effectRandom = shuffle(effect);
+        const { clue } = conf.points;
+        const { myNameIs, showHint } = conf.wording.slice;
         
         return(
             <li 
@@ -100,7 +108,7 @@ class Slice extends Component {
                         <img className="icon-close" alt="close icon" onClick={this.closeQuestionLayer} src={IconClose} />
                         <div className="valign-wrapper center width-100">
                             <div className="valign-inner">
-                                <h2>My name is :</h2>
+                                <h2>{`${myNameIs} : `}</h2>
                                 <form onSubmit={this.handleAnswer} className={this.state.isAnswered ? "shake-me" : ""}>
                                     <input
                                         type="text"
@@ -117,7 +125,9 @@ class Slice extends Component {
                                     <br />
                                     {
                                         !this.state.isHintShown && 
-                                        <button className="indice" onClick={this.showHint}>voir l'indice (-5 points)</button>                                
+                                    <button className="indice" onClick={this.showHint}>
+                                        {`${showHint} (-${clue} points)`}
+                                    </button>                                
                                     }
                                     {
                                         this.state.isHintShown && 

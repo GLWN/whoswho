@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Slice from './components/Slice';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import Slice from './components/Slice'
+import { connect } from 'react-redux'
 
 class FaceWrapper extends Component {
     render() {

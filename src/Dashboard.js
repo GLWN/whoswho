@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Rules from './components/Rules'
-import pictoFace from './img/picto/picto-face-3d.png';
-import pictoWin from './img/picto/picto-applause-win.jpg';
+import pictoFace from './img/picto/picto-face-3d.png'
+import pictoWin from './img/picto/picto-applause-win.jpg'
+import conf from './conf'
 
 class Dashboard extends Component {
     constructor(props) {
@@ -71,25 +72,27 @@ class Dashboard extends Component {
     displayFaceCount = () => {
         let statusText = "";
         const nbFaces = this.props.availableFaces.length
+        const { gameover, oneLeft, twoLeft, statusDefault } = conf.wording.status;
 
         switch (nbFaces) {
             case 0 :
-                statusText = "Le jeu est terminé, bravo !";
+                statusText = {gameover};
                 return statusText;
             case 1 :
-                statusText = "Il ne reste plus qu'une personne à trouver" ;
+                statusText = {oneLeft} ;
                 return statusText;
             case 2 :
-                statusText = "Il ne reste plus que 2 personnes à trouver" ;
+                statusText = {twoLeft} ;
                 return statusText;
             default :
-                statusText = "Il reste " + this.props.availableFaces.length + " personnes à trouver" ;
+                statusText = statusDefault[0] + this.props.availableFaces.length + statusDefault[1] ;
                 return statusText;
         }
     }
 
     render() {
         const { points, success, availableFaces, rulesAreShown } = this.props;
+        const { photo } = conf.wording.credits;
 
         return(
             <div className="dashboard not-selectable">
@@ -124,7 +127,7 @@ class Dashboard extends Component {
                     : "black"
                 }}>{this.state.counter}</p>
 
-                <p className="credits">Photo credits : Martin Schoeller</p>
+                <p className="credits">{photo}</p>
                 <p className="counter-faces">{this.displayFaceCount()}</p>
                 <button className="rules button" onClick={this.showRules}>règles</button>
                 <button className="reset button" onClick={this.resetApp}>reset</button>

@@ -1,5 +1,5 @@
-import facesJson from '../faces.json';
-import shuffle from '../utils/shuffle';
+import facesJson from '../faces.json'
+import shuffle from '../utils/shuffle'
 
 const availableFaces = [];
 const winPoints = 20;

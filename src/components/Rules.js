@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import IconClose from '../img/icons/close.svg';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import IconClose from '../img/icons/close.svg'
+import { connect } from 'react-redux'
+import conf from '../conf'
 
 class Rules extends Component {
     constructor(props) {
@@ -15,27 +16,32 @@ class Rules extends Component {
     }
 
     render() {
+        const { success, fail, clue } = conf.points;
+        const { good, bad, indice } = conf.wording.rules;
+        const { photo, dev, disclaimer } = conf.wording.credits;
+
         return(
             <div className="rules-layer">
                 <img className="icon-close" alt="close icon" onClick={this.closeLayer} src={IconClose} />
                 <h3>Règles du Who's Who</h3>
                 <ul>
                     <li>
-                        <h4>Bonne réponse</h4>
-                        <p><span className="text-color"> +20 </span>points</p>
+                        <h4>{good}</h4>
+                        <p><span className="text-color">{` +${success} `}</span>points</p>
                     </li>
                     <li>
-                        <h4>Mauvaise réponse</h4>
-                        <p><span className="text-color"> -10 </span>points</p>
+                        <h4>{bad}</h4>
+                        <p><span className="text-color">{` +${fail} `}</span>points</p>
                     </li>
                     <li>
-                        <h4>Indice</h4>
-                        <p><span className="text-color"> -5 </span>points</p>
+                        <h4>{indice}</h4>
+                        <p><span className="text-color">{` +${clue} `}</span>points</p>
                     </li>
                 </ul>
                 <div className="credits">
-                    <p>Photo credits : Martin Schoeller</p>
-                    <p>Dev by GLWN</p>
+                    <p>{photo}</p>
+                    <p>{dev}</p>
+                    <p className="disclaimer">{disclaimer}</p>
                 </div>
             </div>
         )
