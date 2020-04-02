@@ -629,6 +629,9 @@ ul.face-wrapper--list li:nth-child(3n+3) {
 .loader-wrapper {
 	opacity: 0;
 	transition: opacity 2s ease-in-out;
+	p {
+		font-size: 12px;
+	}
 }
 
 .loader {

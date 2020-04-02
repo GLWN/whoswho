@@ -26,7 +26,36 @@ const conf = {
             'oneLeft': "Il ne reste plus qu'une personne à trouver",
             'twoLeft': "Il ne reste plus que deux personnes à trouver",
             'statusDefault': ["Il reste ", " personnes à trouver"]
-        }
+        },
+        'loadingText': [
+            "chargement des assets",
+            "chargement des assets.",
+            "chargement des assets..",
+            "chargement des assets...",
+            "chargement des assets....",
+            "chargement des assets.....",
+            "perpendicularisation du parallèlisme",
+            "perpendicularisation du parallèlisme.",
+            "perpendicularisation du parallèlisme..",
+            "perpendicularisation du parallèlisme...",
+            "triangulation des corpuscules",
+            "triangulation des corpuscules.",
+            "triangulation des corpuscules..",
+            "triangulation des corpuscules...",
+            "calibrage des fluctuations quantiques",
+            "découpage antropomorphique",
+            "découpage antropomorphique.",
+            "découpage antropomorphique..",
+            "découpage antropomorphique...",
+            "fluidification des flux",
+            "verticalisation de l'horizontalité",
+            "verticalisation de l'horizontalité.",
+            "verticalisation de l'horizontalité..",
+            "verticalisation de l'horizontalité...",
+            "verticalisation de l'horizontalité....",
+            "verticalisation de l'horizontalité.....",
+            "détection des ondes gravitationelles"
+        ]
     }
 }
 
