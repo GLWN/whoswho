@@ -30,6 +30,9 @@ button:focus {
 .center {
 	text-align: center;
 }
+.absolute {
+	position: absolute;
+}
 
 * {
 	box-sizing: border-box;
@@ -310,7 +313,9 @@ p, span, h2, h3, h4 {
 
 .valign-wrapper {
 	display: table;
+	text-align: center;
 	height: 100%;
+	width: 100%;
 }
 .valign-inner {
 	display: table-cell;
@@ -619,6 +624,51 @@ ul.face-wrapper--list li:nth-child(3n+3) {
 	}
 }
 
+// LOADER
+
+.loader-wrapper {
+	opacity: 0;
+	transition: opacity 2s ease-in-out;
+}
+
+.loader {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+.loader div {
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border: 8px solid #fff;
+	border-radius: 50%;
+	animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: #fff transparent transparent transparent;
+}
+.loader div:nth-child(1) {
+	animation-delay: -0.45s;
+}
+.loader div:nth-child(2) {
+	animation-delay: -0.3s;
+}
+.loader div:nth-child(3) {
+	animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+  
+  
+
 // ANIMATE APP INTRO
 .anim-intro {
 	opacity: 1;
@@ -671,7 +721,4 @@ ul.face-wrapper--list li:nth-child(3n+3) {
 	.content {
 		padding: 2% 8%;
 	}
-  }
-  @media screen and (max-width: 640px) {
-	
   }

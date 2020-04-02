@@ -18,7 +18,7 @@ class Rules extends Component {
     render() {
         const { success, fail, clue } = conf.points;
         const { good, bad, indice } = conf.wording.rules;
-        const { photo, dev, disclaimer } = conf.wording.credits;
+        const { photo, dev, disclaimer, stack } = conf.wording.credits;
 
         return(
             <div className="rules-layer">
@@ -42,6 +42,7 @@ class Rules extends Component {
                     <p>{photo}</p>
                     <p>{dev}</p>
                     <p className="disclaimer">{disclaimer}</p>
+                    <p className="disclaimer">{stack}</p>
                 </div>
             </div>
         )

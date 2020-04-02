@@ -9,7 +9,8 @@ const conf = {
         'credits': {
             'photo': "Photo credits : Martin Schoeller",
             'dev': "Concept and dev : GLWN",
-            'disclaimer': "Site made for JS developpement demo purposes only using React and Redux" 
+            'disclaimer': "Site created for developpement demo purposes only", 
+            'stack': "Stack : JS, React, Redux, Sass" 
         },
         'rules': {
             'good': "Bonne réponse",

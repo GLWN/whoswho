@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
 import FaceWrapper from './FaceWrapper'
 import Dashboard from './Dashboard'
+import Loader from './components/Loader'
 import './App.scss'
 import prefetchImages from 'prefetch-image'
+import ReactDOM from 'react-dom'
 import conf from './conf'
 
 class App extends Component {
   constructor() {
     super();
-
+    
+    this.state = { 
+      areAssetsLoaded: false,
+      animCssIntroDuration: 2000
+    };
     this.facesImgUrlList = [];
 
     for (let i = 0; i < conf.facesTotal; i++) {
@@ -21,19 +27,23 @@ class App extends Component {
   }
   
   componentDidMount() {
-    const el = document.getElementsByClassName('content')[0];
-    
+    const content = document.getElementsByClassName('content')[0];
+
     prefetchImages(this.facesImgUrlList)
     .then(() => {
-      //start init your page logic...
-      console.log('all images loaded!');
-      el.classList.add('anim-intro');
+      content.classList.add('anim-intro');
+      setTimeout(() => {
+        this.setState({
+          areAssetsLoaded: true
+        })
+      }, this.state.animCssIntroDuration);
     });  
   }
 
   render() {   
     return(
       <div>
+        {!this.state.areAssetsLoaded && <Loader />}
         <div className="content">
           <FaceWrapper />
           <Dashboard />

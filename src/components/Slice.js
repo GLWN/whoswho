@@ -106,7 +106,7 @@ class Slice extends Component {
                     this.state.isOpened &&
                     <div className="question-overlay">
                         <img className="icon-close" alt="close icon" onClick={this.closeQuestionLayer} src={IconClose} />
-                        <div className="valign-wrapper center width-100">
+                        <div className="valign-wrapper">
                             <div className="valign-inner">
                                 <h2>{`${myNameIs} : `}</h2>
                                 <form onSubmit={this.handleAnswer} className={this.state.isAnswered ? "shake-me" : ""}>
