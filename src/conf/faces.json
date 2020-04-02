@@ -3,114 +3,133 @@
         "id": "0",
         "firstname": "Jay",
         "lastname": "Z",
+        "nickname": "",
         "quote": "Je suis le mec de Beyoncé"
     },
     {
         "id": "1",
         "firstname": "Helen",
         "lastname": "Mirren",
+        "nickname": "",
         "quote": "Je suis Elisabeth I"
     },
     {
         "id": "2",
         "firstname": "Clint",
         "lastname": "Eastwood",
+        "nickname": "Clint",
         "quote": "Je suis l'inspecteur Harry"
     },
     {
         "id": "3",
         "firstname": "Christopher",
         "lastname": "Walken",
+        "nickname": "",
         "quote": "Je suis le cavalier sans tête"
     },
     {
         "id": "4",
         "firstname": "Bill",
         "lastname": "Murray",
+        "nickname": "",
         "quote": "Je suis un chasseur de fantômes"
     },
     {
         "id": "5",
         "firstname": "Zach",
         "lastname": "Galifianakis",
+        "nickname": "",
         "quote": "Je me fais un Very Bad Trip"
     },
     {
         "id": "6",
         "firstname": "Lebron",
         "lastname": "James",
+        "nickname": "",
         "quote": "Je suis une légende de la NBA"
     },
     {
         "id": "7",
         "firstname": "Marilyn",
         "lastname": "Manson",
+        "nickname": "Manson",
         "quote": "Mi-homme mi-démon"
     },
     {
         "id": "8",
         "firstname": "Zlatan",
         "lastname": "Ibrahimovic",
+        "nickname": "Zlatan",
         "quote": "Football et Taekwondo"
     },
     {
         "id": "9",
         "firstname": "Zinedine",
         "lastname": "Zidane",
+        "nickname": "Zidane",
         "quote": "Numéro 10 dans ma team"
     },
     {
         "id": "10",
         "firstname": "Woody",
         "lastname": "Allen",
+        "nickname": "",
         "quote": "Je suis réalisateur et acteur"
     },
     {
         "id": "11",
         "firstname": "Willie",
         "lastname": "Nelson",
+        "nickname": "",
         "quote": "Le papa de la country"
     },
     {
         "id": "12",
         "firstname": "Willem",
         "lastname": "Dafoe",
+        "nickname": "",
         "quote": "Je suis le Bouffon Vert"
     },
     {
         "id": "13",
         "firstname": "Valentino",
         "lastname": "",
+        "nickname": "",
         "quote": "Je suis un créateur de mode italien"
     },
     {
         "id": "14",
         "firstname": "Mike",
         "lastname": "Tyson",
+        "nickname": "Tyson",
         "quote": "Je suis un boxeur qui aime les oreilles"
     },
     {
         "id": "15",
         "firstname": "Questlove",
         "lastname": "",
+        "nickname": "",
         "quote": "Je suis le batteur de The Roots"
     },
     {
         "id": "16",
         "firstname": "Taylor",
         "lastname": "Swift",
+        "nickname": "",
         "quote": "Je suis une chanteuse de pop"
     },
     {
         "id": "17",
         "firstname": "Sting",
         "lastname": "",
+        "nickname": "",
         "quote": "Je suis le chanteur de Police"
     },
     {
         "id": "18",
         "firstname": "Arnold",
         "lastname": "Schwarzenegger",
+        "nickname": "Schwarzy",
         "quote": "Sarah Conor ?"
     },
     {
@@ -123,360 +142,420 @@
         "id": "20",
         "firstname": "Rihanna",
         "lastname": "",
+        "nickname": "",
         "quote": "Under my umbrella !"
     },
     {
         "id": "21",
         "firstname": "Prince",
         "lastname": "",
+        "nickname": "Love Symbol",
         "quote": "J'aime la pluie pourpre"
     },
     {
         "id": "22",
         "firstname": "Paul",
         "lastname": "Rudd",
+        "nickname": "",
         "quote": "Je suis Antman"
     },
     {
         "id": "23",
         "firstname": "Paris",
         "lastname": "Hilton",
+        "nickname": "",
         "quote": "J'ai un prénom de ville et un nom d'hôtel'"
     },
     {
         "id": "24",
         "firstname": "Oprah",
         "lastname": "Winfrey",
+        "nickname": "",
         "quote": "Je suis la femme la plus riche du monde"
     },
     {
         "id": "25",
         "firstname": "Natalie",
         "lastname": "Portman",
+        "nickname": "",
         "quote": "Je suis la protégée de Léon"
     },
     {
         "id": "26",
         "firstname": "Mickey",
         "lastname": "Rourke",
+        "nickname": "",
         "quote": "Angel Heart"
     },
     {
         "id": "27",
         "firstname": "Michael",
         "lastname": "Douglas",
+        "nickname": "",
         "quote": "Basic Instinct"
     },
     {
         "id": "28",
         "firstname": "Meryl",
         "lastname": "Streep",
+        "nickname": "",
         "quote": "J'ai 3 Oscars et 9 Golden Globes"
     },
     {
         "id": "29",
         "firstname": "Matthew",
         "lastname": "McConaughey",
+        "nickname": "",
         "quote": "Interstellar"
     },
     {
         "id": "30",
         "firstname": "Martin",
         "lastname": "Scorsese",
+        "nickname": "Scorsese",
         "quote": "J'ai les Nerfs à Vif"
     },
     {
         "id": "31",
         "firstname": "Mark",
         "lastname": "Zuckerberg",
+        "nickname": "Zuckerberg",
         "quote": "Facebook"
     },
     {
         "id": "32",
         "firstname": "David",
         "lastname": "Lynch",
+        "nickname": "Lynch",
         "quote": "Twin Peaks"
     },
     {
         "id": "33",
         "firstname": "Louis",
         "lastname": "CK",
+        "nickname": "Louis C.K.",
         "quote": "Je suis un comédien de stand-up américain"
     },
     {
         "id": "34",
         "firstname": "Adele",
         "lastname": "",
+        "nickname": "",
         "quote": "Je suis une chanteuse anglaise"
     },
     {
         "id": "35",
         "firstname": "Russell",
         "lastname": "Crowe",
+        "nickname": "",
         "quote": "Je suis Maximus"
     },
     {
         "id": "36",
         "firstname": "Bradley",
         "lastname": "Cooper",
+        "nickname": "",
         "quote": "J'ai joué avec Lady Gaga"
     },
     {
         "id": "37",
         "firstname": "Lance",
         "lastname": "Armstrong",
+        "nickname": "",
         "quote": "Je suis un cycliste/tricheur américain"
     },
     {
         "id": "38",
         "firstname": "Kobe",
         "lastname": "Bryant",
+        "nickname": "Kobe",
         "quote": "Basketteur américain, RIP"
     },
     {
         "id": "39",
         "firstname": "Kirk",
         "lastname": "Hammett",
+        "nickname": "",
         "quote": "Je suis le guitariste de Metallica"
     },
     {
         "id": "40",
         "firstname": "Kelly",
         "lastname": "Slater",
+        "nickname": "",
         "quote": "11 fois champion du monde de surf"
     },
     {
         "id": "41",
         "firstname": "Cate",
         "lastname": "Blanchett",
+        "nickname": "",
         "quote": "J'ai joué Galadriel"
     },
     {
         "id": "42",
         "firstname": "Kanye",
         "lastname": "West",
+        "nickname": "Kanye",
         "quote": "Je suis un rappeur et producteur américain"
     },
     {
         "id": "43",
         "firstname": "Justin",
         "lastname": "Timberlake",
+        "nickname": "",
         "quote": "Je suis un chanteur américain"
     },
     {
         "id": "44",
         "firstname": "Julia",
         "lastname": "Roberts",
+        "nickname": "",
         "quote": "Je suis une actrice américaine"
     },
     {
         "id": "45",
         "firstname": "Michael",
         "lastname": "Jordan",
+        "nickname": "Jordan",
         "quote": "Numéro 23"
     },
     {
         "id": "46",
         "firstname": "John",
         "lastname": "McEnroe",
+        "nickname": "Mc Enroe",
         "quote": "Tennis"
     },
     {
         "id": "47",
         "firstname": "Jimmy",
         "lastname": "Fallon",
+        "nickname": "",
         "quote": "Je suis animateur de talk-show"
     },
     {
         "id": "48",
         "firstname": "Jessica",
         "lastname": "Chastain",
+        "nickname": "",
         "quote": "Je suis une actrice américaine"
     },
     {
         "id": "49",
         "firstname": "Jennifer",
         "lastname": "Connelly",
+        "nickname": "",
         "quote": "Je fini mal dans Requiem for a Dream"
     },
     {
         "id": "50",
         "firstname": "Jake",
         "lastname": "Gyllenhaal",
+        "nickname": "",
         "quote": "Donnie Darko"
     },
     {
         "id": "51",
         "firstname": "James",
         "lastname": "Franco",
+        "nickname": "",
         "quote": "127 heures"
     },
     {
         "id": "52",
         "firstname": "Jack",
         "lastname": "Nicholson",
+        "nickname": "",
         "quote": "REDRUM"
     },
     {
         "id": "53",
         "firstname": "Iggy",
         "lastname": "Pop",
+        "nickname": "Iggy",
         "quote": "Je suis un chanteur de rock"
     },
     {
         "id": "54",
         "firstname": "Hugh",
         "lastname": "Jackman",
+        "nickname": "",
         "quote": "Je suis Wolverine"
     },
     {
         "id": "55",
         "firstname": "Lady",
         "lastname": "Gaga",
+        "nickname": "Gaga",
         "quote": "Poker Face"
     },
     {
         "id": "56",
         "firstname": "George",
         "lastname": "Clinton",
+        "nickname": "",
         "quote": "Je suis le maître de la P-Funk"
     },
     {
         "id": "57",
         "firstname": "George",
         "lastname": "Clooney",
+        "nickname": "Clooney",
         "quote": "What else?"
     },
     {
         "id": "58",
         "firstname": "Hillary",
         "lastname": "Clinton",
+        "nickname": "",
         "quote": "Je suis ancienne secrétaire d'état et mon mari a taché sa cravate"
     },
     {
         "id": "59",
         "firstname": "Udo",
         "lastname": "Kier",
+        "nickname": "",
         "quote": "Protégé de Fassbinder et vampire notoire"
     },
     {
         "id": "60",
         "firstname": "Dennis",
         "lastname": "Hopper",
+        "nickname": "",
         "quote": "Easy Rider"
     },
     {
         "id": "61",
         "firstname": "Daniel",
         "lastname": "Radcliffe",
+        "nickname": "Harry Potter",
         "quote": "Je suis Harry Potter"
     },
     {
         "id": "62",
         "firstname": "Emma",
         "lastname": "Watson",
+        "nickname": "Hermione",
         "quote": "Je suis Hermione"
     },
     {
         "id": "63",
         "firstname": "Drake",
         "lastname": "",
+        "nickname": "",
         "quote": "Je suis un chanteur de R'n'B canadien"
     },
     {
         "id": "64",
         "firstname": "Donatella",
         "lastname": "Versace",
+        "nickname": "Donatella",
         "quote": "Je suis une styliste italienne"
     },
     {
         "id": "65",
         "firstname": "Dolly",
         "lastname": "Parton",
+        "nickname": "",
         "quote": "Je suis LA chanteuse de country"
     },
     {
         "id": "66",
         "firstname": "Denzel",
         "lastname": "Washington",
+        "nickname": "",
         "quote": "Je suis Malcolm X"
     },
     {
         "id": "67",
         "firstname": "Jesse",
         "lastname": "Eisenberg",
+        "nickname": "",
         "quote": "J'ai joué Mark Zuckerberg"
     },
     {
         "id": "68",
         "firstname": "Amy",
         "lastname": "Adams",
+        "nickname": "",
         "quote": "Premier Contact"
     },
     {
         "id": "69",
         "firstname": "André",
         "lastname": "Agassi",
+        "nickname": "Agassi",
         "quote": "J'ai gagné Roland Garros"
     },
     {
         "id": "70",
         "firstname": "Colin",
         "lastname": "Farell",
+        "nickname": "",
         "quote": "Je suis unacteur irlandais"
     },
     {
         "id": "71",
         "firstname": "Christoph",
         "lastname": "Waltz",
+        "nickname": "",
         "quote": "Je suis le méchant d'Inglorious Basterds"
     },
     {
         "id": "72",
         "firstname": "Christian",
         "lastname": "Bale",
+        "nickname": "",
         "quote": "Je suis Batman"
     },
     {
         "id": "73",
         "firstname": "Cher",
         "lastname": "",
+        "nickname": "",
         "quote": "Je suis une chanteuse sous Auto-Tune"
     },
     {
         "id": "74",
         "firstname": "Brad",
         "lastname": "Pitt",
+        "nickname": "",
         "quote": "Fight Club"
     },
     {
         "id": "75",
         "firstname": "Bono",
         "lastname": "",
+        "nickname": "",
         "quote": "Bloody Sunday"
     },
     {
         "id": "76",
         "firstname": "Bill",
         "lastname": "Gates",
+        "nickname": "",
         "quote": "Windows 3.11"
     },
     {
         "id": "77",
         "firstname": "Barack",
         "lastname": "Obama",
+        "nickname": "Obama",
         "quote": "USA! USA! USA!"
     },
     {
         "id": "78",
         "firstname": "Anthony",
         "lastname": "Hopkins",
+        "nickname": "",
         "quote": "Je suis Hannibal Lecter"
     },
     {
         "id": "79",
         "firstname": "Anne",
         "lastname": "Hathaway",
+        "nickname": "",
         "quote": "Je suis Anne Hathaway"
     }
 

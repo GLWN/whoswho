@@ -1,4 +1,4 @@
-import facesJson from '../faces.json'
+import facesJson from '../conf/faces.json'
 import shuffle from '../utils/shuffle'
 
 const availableFaces = [];
@@ -20,12 +20,13 @@ const buildNewFace = (avFaces) => {
     }
 
     for(let i = 0; i < 3; i++) {
-        const {id, firstname, lastname, quote} = facesJson[shuffledFaces[i]];
+        const {id, firstname, lastname, nickname, quote} = facesJson[shuffledFaces[i]];
         
         faceSliced.push({
             id: id + "-" + i,
             firstname: firstname,
             lastname: lastname,
+            nickname: nickname,
             quote: quote,
             faceId: parseInt(id),
             sliceId: i

@@ -4,7 +4,6 @@ import Dashboard from './Dashboard'
 import Loader from './components/Loader'
 import './App.scss'
 import prefetchImages from 'prefetch-image'
-import ReactDOM from 'react-dom'
 import conf from './conf'
 
 class App extends Component {

@@ -27,18 +27,22 @@ class Slice extends Component {
             this.setState({
                 isOpened: true
             }, () => this.answerInput.current.focus());
-            
         }
     }
 
     handleAnswer = (e) => {
         e.preventDefault();
-        const input = this.answerInput.current.value;
-        const faceName = this.props.firstname + (this.props.lastname ? " " + this.props.lastname : "");
+        console.log(this.props);
+        const { firstname, lastname, nickname } = this.props;
+        const input = this.answerInput.current.value.toLowerCase();
+        const faceName = (firstname + (lastname ? " " + lastname : "")).toLowerCase();
+        const nickName = nickname.toLowerCase();
         const { success, fail } = conf.points;
 
+        console.log(firstname, lastname, nickName, input);
+
         // WIN
-        if(input.toLowerCase() === faceName.toLowerCase()) {
+        if(input === faceName || input === nickName) {
             this.setState({
                 'isOpened': false,
                 'isAnswered': false

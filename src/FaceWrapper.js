@@ -18,6 +18,7 @@ class FaceWrapper extends Component {
                             key={`face_${face.faceId}-${face.sliceId}`}
                             firstname={face.firstname}
                             lastname={face.lastname}
+                            nickname={face.nickname}
                             faceId={face.faceId}
                             sliceId={face.sliceId}
                             points={face.points}
