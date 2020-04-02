@@ -44,4 +44,23 @@ render() {
 
 ------
 
+https://blog.lovemily.me/preload-images-with-pure-javascript/
+
+yarn add prefetch-image
+
+//commonjs
+const prefetchImages = require('prefetch-image');
+//ES6
+import prefetchImages from 'prefetch-image';
+const images = [
+  '/1.png',
+  '/2.jpg',
+  '/3.png',
+];
+prefetchImages(images, options)
+  .then(() => {
+    console.log('all images loaded!');
+    //start init your page logic...
+  }); 
+
 

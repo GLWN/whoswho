@@ -8784,6 +8784,13 @@ postcss@^7, postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, po
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
+prefetch-image@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/prefetch-image/-/prefetch-image-1.1.0.tgz#48bbda21c268495cd7de0b2afb95b2e1fc3f7baf"
+  integrity sha1-SLvaIcJoSVzX3gsq+5Wy4fw/e68=
+  dependencies:
+    url-join "2.0.1"
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -10894,6 +10901,11 @@ urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
+
+url-join@2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/url-join/-/url-join-2.0.1.tgz#04b446fcd359a2fa42cc9b6962b219b91ddfe1a8"
+  integrity sha1-BLRG/NNZovpCzJtpYrIZuR3f4ag=
 
 url-loader@2.3.0:
   version "2.3.0"
