@@ -1,4 +1,5 @@
 const conf = {
+    'facesTotal': 80,
     'points': {
         'success': 20,
         'fail': 10,
