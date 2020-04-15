@@ -32,12 +32,12 @@ class FaceWrapper extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        faces: state.faces,
-        currentFaces: state.currentFaces,
-        availableFaces: state.availableFaces,
-        success: state.success,
-        points: state.points,
-        quote: state.quote
+        'faces': state.faces,
+        'currentFaces': state.currentFaces,
+        'availableFaces': state.availableFaces,
+        'success': state.success,
+        'points': state.points,
+        'quote': state.quote
     }
 }
 
